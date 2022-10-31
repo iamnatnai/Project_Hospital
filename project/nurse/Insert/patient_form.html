@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+
+        function removeTel(){
+            try{
+                let tel = document.getElementById("tel");
+                tel.removeChild(tel.lastChild);
+            }catch(err){
+                console.log(err);
+            }
+            
+        }
+
+        function addTel(){
+            let input = document.createElement("INPUT");
+            input.setAttribute("type","tel");
+            input.setAttribute("name","phone[]");
+            input.setAttribute("required","");
+            input.pattern = "[0-9]{10}";
+
+            let br = document.createElement('br');
+            document.getElementById("tel").appendChild(input).style.display = "block";
+            
+            
+        }
+
+        function addDisease(){
+            let input = document.createElement("INPUT");
+            input.setAttribute("type","text");
+            input.setAttribute("name","d[]");
+
+            let br = document.createElement('br');
+            document.getElementById("diseases").appendChild(input).style.display = "block";
+            
+        }
+
+        function removeDisease(){
+            try{
+                let disease = document.getElementById("diseases");
+                disease.removeChild(disease.lastChild);
+            }catch(err){
+                console.log(err);
+            }
+            
+        }
+    </script>
+    <title>Document</title>
+</head>
+<body>
+    <form action="insert_patient.php" method="post">
+
+        <div style="display: flex;">
+            <label for="name">Name</label>
+            <div>
+                <input type="text" id="name" pattern="[\DA-Za-z]{1,}" name="fname" required><br>
+                <small>First Name</small>
+            </div>
+            <div>
+                <input type="text" id="name" pattern="[\DA-Za-z]{1,}" name="lname" required><br>
+                <small>Last Name</small><br>
+            </div>
+        </div>
+        
+        <div>
+            <label for="dob">Date Of Birth</label>
+            <input type="date" name="dob" id="dob" required><br>
+        </div>
+
+        <div>
+            <label>Sex</label><br>
+            <input type="radio" name="sex" id="male" value="MALE" required>
+            <label for="male">Male</label>
+            <input type="radio" name="sex" id="female" value="FEMALE" required>
+            <label for="male">Female</label><br>
+        </div>
+
+        <div>
+            <label for="contract">Contract</label>
+            <input type="tel" name="phone[]" id="phone1" required pattern="\d{10}">
+            <span onclick="addTel()">+</span>
+            <span onclick="removeTel()">-</span><br>
+            <div id="tel">
+
+            </div>
+        </div>
+        
+        <div>
+            <label for="disease">Diseases</label><br>
+            <input type="text" id="diseaseInput" name="d[]">
+            <span onclick="addDisease()" id="diseasesPlus">+</span>
+            <span onclick="removeDisease()" id="diseasesPlus">-</span><br>
+            <div id="diseases">
+
+            </div>
+        </div>
+        
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
