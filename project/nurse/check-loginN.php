@@ -1,6 +1,6 @@
 <?php
     try {
-        $pdo = new PDO("mysql:host=localhost;dbname=miniproject;charset=utf8", "root", "");
+        $pdo = new PDO("mysql:host=localhost;dbname=system_hospital;charset=utf8", "root", "");
     } catch (PDOException $e) {
         echo "เกิดข้อผิดพลาด : ".$e->getMessage();
     }
@@ -21,7 +21,7 @@
 
     // แสดง link เพื่อไปยังหน้าต่อไปหลังจากตรวจสอบสำเร็จแล้ว
     echo "เข้าสู่ระบบสำเร็จ<br>";
-    echo "<a href='user-home.php'>ไปยังหน้าหลักของผู้ใช้</a>"; 
+    echo "<a href='../nurse/index.html'>ไปยังหน้าหลักของผู้ใช้</a>"; 
 
   // กรณี username และ password ไม่ตรงกัน
   } else {

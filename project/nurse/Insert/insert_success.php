@@ -46,6 +46,7 @@
                 <?=$row['pdisease']?>
         <?php endwhile ?>
             </p>
+            <a href="../Select/patient.php">รายชื่อคนไข้</a>
     </div>
 </body>
 </html>

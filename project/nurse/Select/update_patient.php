@@ -4,6 +4,11 @@
     $dob = $_GET['dob'];
     $sex = $_GET['sex'];
     $date = $_GET['date'];
+
+    if($date == ""){
+        $date = null;
+    }
+    
     try{
         $pdo = new PDO("mysql:host=localhost;dbname=system_hospital","root","");
         $pdo->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION); 
@@ -61,6 +66,7 @@
                 $indexD++;
             }
         }
+        header("location: ../Select/patient.php");
     }
     catch(PDOException $e){
         echo "Connection Fail : ".$e;
