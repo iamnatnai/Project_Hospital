@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script>
+        var xmlHttp;
+        function send() {
+            xmlHttp = new XMLHttpRequest();
+            xmlHttp.onreadystatechange = showResult;
+            var name = document.getElementById("name").value;
+            var url = "doctor.php?name=" + name;
+            xmlHttp.open("GET",url,true);
+            xmlHttp.send();
+        } 
+        function showResult()
+        {
+            if(xmlHttp.readyState == 4)
+            {
+                if(xmlHttp.status == 200)
+                {
+                    document.getElementById("result").innerHTML = xmlHttp.responseText;
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <a href="doctorform.html">หมอ</a> | 
+    <a href="nurseform.html">พยาบาล</a>
+    <br><br>
+    ค้นหาชื่อแพทย์ : <input type="text" id="name" onkeyup="send()" pattern="[A-Za-z]+" title="Please enter only alphabet">
+    <div id="result"></div>
+</body>
+
+</html>
