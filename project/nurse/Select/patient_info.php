@@ -19,6 +19,12 @@
         $date->bindParam(1,$pid);
         $date->execute();
         $pdate = $date->fetch();
+        if(!isset($pdate['entrydate'])){
+            $pdate['entrydate']="";
+        }
+        if(!isset($pdate['leavedate'])){
+            $pdate['leavedate']="";
+        }
     }
     catch(PDOException $e){
         echo "Connection Fail : ".$e;
@@ -54,6 +60,8 @@
             <p>Entry Date : <?=$pdate['entrydate']?></p>
             <p>Leave Date : <?=$pdate['leavedate']?></p>
             <button><a href="edit_patient.php?pid=<?=$pid?>">Edit</a></button>
+            <hr>
     </div>
+    
 </body>
 </html>
