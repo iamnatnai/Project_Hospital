@@ -1,13 +1,13 @@
 <?php
     try {
-        $pdo = new PDO("mysql:host=localhost;dbname=miniproject;charset=utf8", "root", "");
+        $pdo = new PDO("mysql:host=localhost;dbname=system_hospital;charset=utf8", "root", "");
     } catch (PDOException $e) {
         echo "เกิดข้อผิดพลาด : ".$e->getMessage();
     }
   
   session_start();
 
-  $stmt = $pdo->prepare("SELECT * FROM doctor WHERE did = ? AND password = ?");
+  $stmt = $pdo->prepare("SELECT * FROM doctor WHERE doctor.did = ? AND doctor.password = ?");
   $stmt->bindParam(1, $_POST["username"]);
   $stmt->bindParam(2, $_POST["password"]);
   $stmt->execute();

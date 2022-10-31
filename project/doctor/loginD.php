@@ -21,12 +21,16 @@
                         <input type="text"
                                name="username"
                                placeholder="Username"
-                               class="border border-gray-300/50 p-1 rounded focus:outline-none"/>
+                               class="border border-gray-300/50 p-1 rounded focus:outline-none"
+                               required                                                     
+                        />
 
                         <input type="password"
                                name="password"
                                placeholder="Password"
-                               class="border border-gray-300/50 p-1 rounded focus:outline-none"/>
+                               class="border border-gray-300/50 p-1 rounded focus:outline-none"
+                               required
+                        />
                     </div>
                 </div>
                 <div class="pt-8 text-base font-semibold leading-7">
