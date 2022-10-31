@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +8,7 @@
     <title>Document</title>
 </head>
 <body>
+    <h2></h2>
     <a href="./Select/patient.php">Patients</a> | 
     <a href="./Insert/patient_form.html">Add Patient</a>
 </body>
