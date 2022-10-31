@@ -1,4 +1,8 @@
 <?php
+    session_start();
+    if(empty($_SESSION['username'])){
+        header("location: ../loginN.php");
+    }
     $pdo = new PDO("mysql:host=localhost;dbname=system_hospital","root","");
     $pdo->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
     $patient = $pdo->prepare("SELECT * FROM patient");
@@ -18,6 +22,8 @@
     </style>
 </head>
 <body>
+    Welcome<a href="../nurseinfo.php?nid=<?=$_SESSION['username']?>"><?=$_SESSION['fullname']?></a>
+    <a href="logoutN.php">Log out</a><br>
     <table>
         <tr>
             <th>Patient ID</th>
@@ -38,5 +44,6 @@
             </tr>
         <?php endwhile ?>
     </table>
+    <a href="../index.php">Back to homepage</a>
 </body>
 </html>

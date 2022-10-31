@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    if(empty($_SESSION['username'])){
+       header("location: ../loginN.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,6 +53,8 @@
     <title>Document</title>
 </head>
 <body>
+    Welcome<a href="../nurseinfo.php?nid=<?=$_SESSION['username']?>"><?=$_SESSION['fullname']?></a>
+    <a href="../logoutN.php">Log out</a><br>
     <form action="insert_patient.php" method="post">
         <div class="form">
             <div class="firstlastname">

@@ -15,17 +15,18 @@
 
   // หาก username และ password ตรงกัน จะมีข้อมูลในตัวแปร $row
   if (!empty($row)) { 
+    session_regenerate_id();
     // นำข้อมูลผู้ใช้จากฐานข้อมูลเขียนลง session 2 ค่า
     $_SESSION["fullname"] = $row["nfnamelname"];   
     $_SESSION["username"] = $row["nid"];
 
     // แสดง link เพื่อไปยังหน้าต่อไปหลังจากตรวจสอบสำเร็จแล้ว
     echo "เข้าสู่ระบบสำเร็จ<br>";
-    echo "<a href='../nurse/index.html'>ไปยังหน้าหลักของผู้ใช้</a>"; 
+    header( "refresh:1; url=index.php" );
 
   // กรณี username และ password ไม่ตรงกัน
   } else {
     echo "ไม่สำเร็จ ชื่อหรือรหัสผ่านไม่ถูกต้อง";
-    echo "<a href='loginN.php'>เข้าสู่ระบบอีกครัง</a>"; 
+    header( "location:loginN.php?message=Username or Password not correct!" ); 
   }
 ?>

@@ -1,3 +1,9 @@
+<?php
+ session_start();
+ if(empty($_SESSION['username'])){
+    header("location: loginN.php");
+ }
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -8,8 +14,9 @@
     <title>Document</title>
 </head>
 <body>
-    <h2></h2>
+    Welcome<a href="nurseinfo.php?nid=<?=$_SESSION['username']?>"><?=$_SESSION['fullname']?></a>
+    <a href="logoutN.php">Log out</a><br>
     <a href="./Select/patient.php">Patients</a> | 
-    <a href="./Insert/patient_form.html">Add Patient</a>
+    <a href="./Insert/patient_form.php">Add Patient</a>
 </body>
 </html>

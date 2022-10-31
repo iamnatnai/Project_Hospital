@@ -1,4 +1,8 @@
 <?php
+    session_start();
+    if(empty($_SESSION['username'])){
+        header("location: ../loginN.php");
+    }
     $pid = $_GET['pid'];
     $pname = $_GET['fname']." ".$_GET['lname'];
     $dob = $_GET['dob'];

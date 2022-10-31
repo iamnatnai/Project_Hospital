@@ -1,4 +1,8 @@
 <?php
+    session_start();
+    if(empty($_SESSION['username'])){
+       header("location: ../loginN.php");
+    }
     $pid = $_GET['pid'];
     try{
         $pdo = new PDO("mysql:host=localhost;dbname=system_hospital","root","");
