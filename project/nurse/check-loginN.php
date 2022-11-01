@@ -4,8 +4,7 @@
     } catch (PDOException $e) {
         echo "เกิดข้อผิดพลาด : ".$e->getMessage();
     }
-  
-  session_start();
+    session_start();
 
   $stmt = $pdo->prepare("SELECT * FROM nurse WHERE nid = ? AND PASSWORD = ?");
   $stmt->bindParam(1, $_POST["username"]);

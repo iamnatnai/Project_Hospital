@@ -5,6 +5,6 @@
         $params["path"], $params["domain"],
         $params["secure"], $params["httponly"]
     );
-    session_destroy(); // ทำลาย session
+    session_destroy();
     header("location:loginN.php");
 ?>

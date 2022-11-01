@@ -16,8 +16,8 @@
   // หาก username และ password ตรงกัน จะมีข้อมูลในตัวแปร $row
   if (!empty($row)) { 
     // นำข้อมูลผู้ใช้จากฐานข้อมูลเขียนลง session 2 ค่า
-    $_SESSION["fullname"] = $row["dfnamelname"];   
-    $_SESSION["username"] = $row["did"];
+    $_SESSION["fullnameD"] = $row["dfnamelname"];   
+    $_SESSION["usernameD"] = $row["did"];
 
     // แสดง link เพื่อไปยังหน้าต่อไปหลังจากตรวจสอบสำเร็จแล้ว
     echo "เข้าสู่ระบบสำเร็จ<br>";
@@ -26,6 +26,6 @@
   // กรณี username และ password ไม่ตรงกัน
   } else {
     echo "ไม่สำเร็จ ชื่อหรือรหัสผ่านไม่ถูกต้อง";
-    echo "<a href='loginD.php'>เข้าสู่ระบบอีกครัง</a>"; 
+    header( "location:loginD.php?message=Username or Password not correct!" ); 
   }
 ?>
