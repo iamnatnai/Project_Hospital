@@ -16,8 +16,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        div,h3{ text-align: center; }
+        form,table{
+            margin: auto;
+            text-align: center;
+        }
+        th,td,tr{ 
+            padding: 10px; 
+            border: 1px;
+        }
         th,tr,td,table{
             border: 1px solid black;
+        }
+        input[type='text']{ padding: 5px;}
+        input[type='submit']{
+            cursor:pointer;
+            padding: 5px;
         }
     </style>
 </head>
@@ -32,6 +46,7 @@
             <th>Age</th>
             <th>Sex</th>
             <th>History</th>
+            <th>Order</th>
         </tr>
         <?php while($row = $patient->fetch()) : ?>
             <tr>
@@ -41,6 +56,7 @@
                 <td><?=$row['page']?></td>
                 <td><?=$row['psex']?></td>
                 <td><a href="patient_history.php?pid=<?=$row['pid']?>">History</a></td>
+                <td><a href="patient_follow.php?pid=<?=$row['pid']?>"></a>Order</td>
             </tr>
         <?php endwhile ?>
     </table>

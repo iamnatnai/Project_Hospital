@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    if(empty($_SESSION['usernameD'])){
+        header("location: loginD.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +13,8 @@
     <title>Document</title>
 </head>
 <body>
+    Welcome<a href="doctorinfo.php?did=<?=$_SESSION['usernameD']?>"><?=$_SESSION['fullnameD']?></a>
+    <a href="logoutD.php">Log out</a><br>
     <a href="check/check-doctor.php">หมอคนไหนรักษาคนไข้คนไหนบ้าง</a>
 </body>
 </html>

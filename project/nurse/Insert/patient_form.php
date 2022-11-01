@@ -106,5 +106,6 @@
         <div id="diseases"></div>
         <input type="submit" value="Submit">
     </form>
+    <a href="../index.php">Back to homepage</a>
 </body>
 </html>

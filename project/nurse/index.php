@@ -17,6 +17,7 @@
     Welcome<a href="nurseinfo.php?nid=<?=$_SESSION['username']?>"><?=$_SESSION['fullname']?></a>
     <a href="logoutN.php">Log out</a><br>
     <a href="./Select/patient.php">Patients</a> | 
-    <a href="./Insert/patient_form.php">Add Patient</a>
+    <a href="./Insert/patient_form.php">Add Patient</a> |
+    <a href="./Select/patient_follow.php">Patient to do list</a>
 </body>
 </html>
