@@ -1,19 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <style>
+        .section {
+            text-align: center;
+            margin: 0% 30%;
+        }
+
+        .doctor:hover {
+            background-color: aqua;
+        }
+
+        .nurse:hover {
+            background-color: aqua;
+        }
+
+        .navbar {
+            padding-top: 3px;
+            padding-bottom: 5px;
+            height: 60px;
+            display: flex;
+            padding-left: 50px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        nav {
+            background-color: #E0BBE4;
+            display: flex;
+        }
+
+        footer {
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+    </style>
 </head>
+
 <body>
-    <table>
-        <tr>
-            <th>
+    <nav>
+        <img src="img/logo.png" width="100px" height="100px">
+        <h1 class="navbar">แผนกอายุรกรรม</h1>
 
-            </th>
-        </tr>
-
-    </table>
-    <a href="other/doctorform.html"><h3>บุคคลากรทางการแพทย์ในแผนกอายุรกรรม</h3></a>
-    <a href="doctor/loginD.php"><h1>DOCTOR</h1></a>
-    <a href="nurse/loginN.php"><h1>NURSE</h1></a>
+    </nav>
+    <section class="section">
+        <a href="doctor/loginD.php">
+            <h1 class="doctor">DOCTOR</h1>
+        </a>
+        <a href="nurse/loginN.php">
+            <h1 class="nurse">NURSE</h1>
+        </a>
+    </section>
+    <footer>
+        <a href="other/doctorform.html">
+            บุคคลากรทางการแพทย์ในแผนกอายุรกรรม
+        </a>
+    </footer>
 </body>
+
 </html>
