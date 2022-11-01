@@ -32,9 +32,9 @@
 <body>
     <form action="editpassworddoctor.php" method="post">
         Doctor ID <input type="text" name="did" value="<?=$did?>" readonly ><br>
-        Old Password<input type="text" name="Opass" ><br>
-        New Password<input name="password" id="password" type="password" onkeyup='check();' /><br>
-        Re-type New Password<input type="password" name="confirm_password" id="confirm_password"  onkeyup='check();' /> <br>
+        Old Password<input type="text" name="Opass" required pattern="\d{8,20}"><br>
+        New Password<input name="password" id="password" type="password" onkeyup='check();' required pattern="\d{8,20}"/><br>
+        Re-type New Password<input type="password" name="confirm_password" id="confirm_password"  onkeyup='check();' pattern="\d{8,20}" required/> <br>
         <span id='message'></span><br>
         <input type="submit">
     </form>

@@ -19,8 +19,9 @@
     if($oldPass->execute()){
         $row = $oldPass->fetch();
         if($_POST['Opass'] != $row['password']){
-            echo "Old Passworld ไม่ถูกต้อง";
-            header( "refresh:1; url=changepassword.php" );
+            echo "Old Passworld ไม่ถูกต้อง <br>";
+            echo "<a href='index.php'>กลับหน้าหลัก</a>";
+            
         }else{
             if($stmt->execute()){
                 echo "finish " . $_POST["did"] . " password changed <br>";
