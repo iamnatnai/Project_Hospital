@@ -1,4 +1,8 @@
 <?php
+    session_start();
+    if(empty($_SESSION['usernameD'])){
+        header("location: loginD.php");
+    }
     $pdo = new PDO("mysql:host=localhost; dbname=system_hospital; charset=utf8", "root", "");
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
 ?>
@@ -44,7 +48,7 @@
         </tr>
         <?php endwhile; ?>
     </table>
-    <a href="../indexdoctor.html">back</a>
+    <a href="../index.php">back</a>
 </body>
 </html>
 

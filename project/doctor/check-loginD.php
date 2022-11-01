@@ -7,8 +7,8 @@
   
   session_start();
 
-  if(empty($_SESSION['usernameD'])){
-      header("location: loginD.php");
+  if(!empty($_SESSION['usernameD'])){
+      header("location:index.php");
   }
 
   $stmt = $pdo->prepare("SELECT * FROM doctor WHERE doctor.did = ? AND doctor.password = ?");

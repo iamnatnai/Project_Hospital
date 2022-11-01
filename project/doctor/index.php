@@ -15,6 +15,7 @@
 <body>
     Welcome<a href="doctorinfo.php?did=<?=$_SESSION['usernameD']?>"><?=$_SESSION['fullnameD']?></a>
     <a href="logoutD.php">Log out</a><br>
-    <a href="check/check-doctor.php">หมอคนไหนรักษาคนไข้คนไหนบ้าง</a>
+    <a href="check/check-doctor.php">หมอคนไหนรักษาคนไข้คนไหนบ้าง</a><br>
+    <a href="changepassword.php?did=<?=$_SESSION['usernameD']?>">เปลี่ยนรหัสผ่าน</a>
 </body>
 </html>
