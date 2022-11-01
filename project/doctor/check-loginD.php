@@ -21,7 +21,7 @@
 
     // แสดง link เพื่อไปยังหน้าต่อไปหลังจากตรวจสอบสำเร็จแล้ว
     echo "เข้าสู่ระบบสำเร็จ<br>";
-    echo "<a href='../nurse/index.html'>ไปยังหน้าหลักของผู้ใช้</a>"; 
+    echo "<a href='../doctor/indexdoctor.html'>ไปยังหน้าหลักของผู้ใช้</a>"; 
 
   // กรณี username และ password ไม่ตรงกัน
   } else {
