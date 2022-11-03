@@ -27,8 +27,6 @@
             input.setAttribute("name","phone[]");
             input.setAttribute("required","");
             input.pattern = "[0-9]{10}";
-
-            let br = document.createElement('br');
             document.getElementById("tel").appendChild(input).style.display = "block";
         }
 
@@ -36,8 +34,6 @@
             let input = document.createElement("INPUT");
             input.setAttribute("type","text");
             input.setAttribute("name","d[]");
-
-            let br = document.createElement('br');
             document.getElementById("diseases").appendChild(input).style.display = "block";
         }
 
@@ -59,9 +55,9 @@
         <div class="form">
             <div class="firstlastname">
                 <label for="name">First Name : </label>
-                <input type="text" id="name"  pattern="[\DA-Za-z]{1,}" name="fname" required><br>
+                <input type="text" id="name"  pattern="[\DA-Za-z]{1,}" name="fname" required title="First name must contain characters a - z , A-Z only!"><br>
                 <label for="name">Last Name : </label>
-                <input type="text" id="name" pattern="[\DA-Za-z]{1,}" name="lname" required>
+                <input type="text" id="name" pattern="[\DA-Za-z]{1,}" name="lname" required title="Last name must contain characters a - z , A-Z only!">
             </div>
         </div>
         
@@ -88,7 +84,7 @@
         <div class="form">
             <label for="contract">Contract</label>
             <div>
-                <input type="tel" name="phone[]" id="phone1" required pattern="\d{10}">
+                <input type="tel" name="phone[]" id="phone1" required pattern="\d{10}" title="Phone number must contain 0-9 only!">
                 <span onclick="addTel()">+</span>
                 <span onclick="removeTel()">-</span>
             </div>

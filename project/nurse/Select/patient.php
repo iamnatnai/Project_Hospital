@@ -37,7 +37,7 @@
 </head>
 <body>
     Welcome<a href="../nurseinfo.php?nid=<?=$_SESSION['username']?>"><?=$_SESSION['fullname']?></a>
-    <a href="logoutN.php">Log out</a><br>
+    <a href="../logoutN.php">Log out</a><br>
     <table>
         <tr>
             <th>Patient ID</th>
