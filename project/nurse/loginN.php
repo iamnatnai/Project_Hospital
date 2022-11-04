@@ -40,9 +40,7 @@ if (!empty($_SESSION['username'])) {
             background-color: #ddd;
             color: black;
         }
-        img{
-            align-content: center;
-        }
+        
 
     </style>
 </head>
