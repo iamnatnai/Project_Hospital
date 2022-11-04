@@ -24,10 +24,10 @@
     </form>
 
     <?php
-        $stmt = $pdo->prepare("SELECT DISTINCT  dfnamelname,pfnamelname,patient.pid FROM doctor 
-                                JOIN seeadoctor ON doctor.did = seeadoctor.did 
-                                JOIN patient on seeadoctor.pid = patient.pid
-                                where doctor.did =  ? ");
+        $stmt = $pdo->prepare("SELECT DISTINCT dfnamelname,pfnamelname,patient.pid FROM doctor
+                                JOIN seeadoctor JOIN patient ON doctor.did = seeadoctor.did
+                                AND seeadoctor.pid = patient.pid
+                                WHERE doctor.did like ? ");
         if (!empty($_GET))
         $value = '%' . $_GET["keyword"] . '%';
         $stmt->bindParam(1, $value);
