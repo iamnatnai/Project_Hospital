@@ -40,12 +40,12 @@
         <?php endwhile ?>
             <p>Tel : 
         <?php while($row=$pTel->fetch()) : ?>
-                <?=$row['pnumber']?> ,
+                <?=$row['pnumber']?> 
         <?php endwhile ?>
             </p>
             <p>Disease : 
         <?php while($row=$pDisease->fetch()) : ?>
-                <?=$row['pdisease']?>,
+                <?=$row['pdisease']?>
         <?php endwhile ?>
             </p>
     </div>
