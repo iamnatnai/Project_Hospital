@@ -24,12 +24,49 @@
             }
         }
     </script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial;
+            padding: 10px;
+            background: #f1f1f1;
+        }
+
+        .topnav {
+            overflow: hidden;
+            background-color: palevioletred;
+        }
+
+        .topnav a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        
+    </style>
 </head>
 
 <body>
+    <nav class="topnav">
+        <a href="../doctor/loginD.php">Doctor</a>
+        <a href="../nurse/loginN.php">Nurse</a>
+        <a href="../index.html">homepage</a>
+        <a href="#" style="float:right">medical personnel</a>
+    </nav>
+
     <a href="doctorform.html">หมอ</a> | 
-    <a href="nurseform.html">พยาบาล</a> | 
-    <a href="../index.html">กลับหน้าหลัก</a>
+    <a href="nurseform.html">พยาบาล</a> |
     <br><br>
     ค้นหาชื่อแพทย์ : <input type="text" id="name" onkeyup="send()" pattern="[A-Za-z]+" title="Please enter only alphabet">
     <div id="result"></div>

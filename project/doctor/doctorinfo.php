@@ -30,6 +30,7 @@
     <a href="logoutD.php">Log out</a><br>
     <div>
         <?php while($row=$nurse->fetch()) : ?>
+            <img src="../img/doctor/<?=$row['did']?>.jpg" width="300px" height="auto" alt="">
             <p>Doctor ID : <?=$row['did']?></p>
             <p>Firstname Lastname : <?=$row['dfnamelname']?></p>
             <p>Spectialize : <?=$row['dspec']?></p>
