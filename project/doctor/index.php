@@ -52,12 +52,12 @@ if (empty($_SESSION['usernameD'])) {
 
     <nav class="topnav">
         <a href="../index.html">homepage</a>
+        <a href="loginD.php">logout</a>
         <a href="../other/doctorform.html" style="float:right">medical personnel</a>
     </nav>
     <h5>
         <br>
         Welcome <a href="doctorinfo.php?did=<?= $_SESSION['usernameD'] ?>"><?= $_SESSION['fullnameD'] ?></a>
-        <button type="button" class="btn btn-outline-secondary"><a href="logoutD.php">Log out</a><br></button>
     </h5>
 
     <nav class="nav flex-column">

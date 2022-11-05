@@ -59,6 +59,7 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         
     <nav class="topnav">
         <a href="../../index.html">homepage</a>
+        <a href="loginD.php">logout</a>
         <a href="../../other/doctorform.html" style="float:right">medical personnel</a>
     </nav>
     
@@ -82,7 +83,7 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $stmt->execute();
     ?>
 
-    <table class="table table-info table-hover">
+    <table class="table table-danger table-hover">
         <tr>
             <th> Doctor Name</th>
             <th> Patient Name</th>
@@ -96,7 +97,7 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             </tr>
         <?php endwhile; ?>
     </table>
-    <a href="../index.php">back</a>
+    <a href="../index.php">back to home doctor</a>
 </body>
 
 </html>

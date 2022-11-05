@@ -18,7 +18,6 @@ $row = $stmt->fetch();
 <html>
 
 <head>
-    <meta charset="utf-8">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
     <script>
@@ -34,23 +33,6 @@ $row = $stmt->fetch();
         }
     </script>
     <style>
-        .topnav {
-            overflow: hidden;
-            background-color: palevioletred;
-        }
-
-        .topnav a {
-            float: left;
-            display: block;
-            color: #f2f2f2;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
-        .topnav a:hover {
-            background-color: #ddd;
-            color: black;
-        }
         html,
         body {
             min-height: 100%;
@@ -177,12 +159,6 @@ $row = $stmt->fetch();
 </head>
 
 <body>
-    <nav class="topnav">
-        <a href="../index.html">homepage</a>
-        <a href="loginD.php">logout</a>
-        <a href="../other/doctorform.html" style="float:right">medical personnel</a>
-    </nav>
-
     <div class="main-block">
         <form action="editpassworddoctor.php">
             <h1>Change Password</h1>
@@ -191,7 +167,7 @@ $row = $stmt->fetch();
                     <h3>Details</h3>
                 </legend>
                 <div class="account-details">
-                    <div><label>Doctor ID ⠀⠀⠀⠀⠀⠀</label><input type="text" name="did" value="<?= $did ?>" readonly></div>
+                    <div><label>Doctor ID  ⠀⠀⠀⠀⠀⠀</label><input type="text" name="did" value="<?= $did ?>" readonly></div>
                 </div>
             </fieldset>
             <fieldset>
@@ -200,19 +176,16 @@ $row = $stmt->fetch();
                 </legend>
                 <div class="personal-details">
                     <div>
-                        <div><label>Old Password ⠀⠀⠀⠀⠀⠀</label><input type="text" name="Opass" required><br></div>
-                        <div><label>New Password ⠀⠀⠀⠀⠀⠀</label><input name="password" id="password" type="password" onkeyup='check();'
-                                                                 required pattern="\d{8,20}" /><br></div>
-                        <div><label>Re-type New Password ⠀⠀⠀⠀⠀⠀</label><input type="password" name="confirm_password" id="confirm_password"
-                                                                 onkeyup='check();' pattern="\d{8,20}" required /> <br></div>
+                        <div><label>Old Password ⠀⠀⠀⠀⠀⠀</label><input type="text" name="Opass" required pattern="\d{8,20}"><br></div>
+                        <div><label>New Password ⠀⠀⠀⠀⠀⠀</label><input name="password" id="password" type="password" onkeyup='check();' required pattern="\d{8,20}" /><br></div>
+                        <div><label>Re-type New Password ⠀⠀⠀⠀⠀⠀</label><input type="password" name="confirm_password" id="confirm_password" onkeyup='check();' pattern="\d{8,20}" required /> <br></div>
                         <div> <span id='message'></span><br> </div>
                     </div>
                 </div>
             </fieldset>
             <button type="submit" href="/">Submit</button>
-            <button> <a href="index.php">back to home doctor</a> </button>
+            <button> <a href="index.php">back to homepage</a> </button>
         </form>
     </div>
 </body>
-
 </html>
