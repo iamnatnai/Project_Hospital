@@ -71,7 +71,6 @@
                         <button type="submit" class="bg-pink-500 hover:bg-pink-600 px-4 py-1 text-white rounded">
                             Login
                         </button><br>
-                        <a href="../index.html">back to homepage</a>
                     </div>
                 </div>
             </div>
