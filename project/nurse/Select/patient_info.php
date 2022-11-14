@@ -66,6 +66,7 @@
             <button><a href="edit_patient.php?pid=<?=$pid?>">Edit</a></button>
             <hr>
     </div>
+    <a href="../index.php">Back</a>
     
 </body>
 </html>

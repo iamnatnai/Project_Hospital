@@ -46,7 +46,6 @@
             <th>Age</th>
             <th>Sex</th>
             <th>History</th>
-            <th>Order</th>
         </tr>
         <?php while($row = $patient->fetch()) : ?>
             <tr>
@@ -56,10 +55,9 @@
                 <td><?=$row['page']?></td>
                 <td><?=$row['psex']?></td>
                 <td><a href="patient_history.php?pid=<?=$row['pid']?>">History</a></td>
-                <td><a href="patient_follow.php?pid=<?=$row['pid']?>"></a>Order</td>
             </tr>
         <?php endwhile ?>
     </table>
-    <a href="../index.php">Back to homepage</a>
+    <a href="../index.php">Back</a>
 </body>
 </html>

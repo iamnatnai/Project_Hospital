@@ -74,7 +74,7 @@
                     echo "ไม่พบข้อมูล";
                }
             }?>
-            <a href="../index.php">Back to homepage</a>
+            <a href="../index.php">Back</a>
     </div>
 </body>
 </html>
