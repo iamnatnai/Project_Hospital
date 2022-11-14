@@ -1,8 +1,10 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <script src="https://kit.fontawesome.com/d711d18929.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/index.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         * {
@@ -10,7 +12,7 @@
         }
 
         body {
-            font-family: Arial;
+            /* font-family: Arial; */
             padding: 10px;
             background: #f1f1f1;
         }
