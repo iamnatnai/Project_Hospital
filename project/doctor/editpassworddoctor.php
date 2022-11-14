@@ -21,11 +21,12 @@
         if($_POST['Opass'] != $row['password']){
             echo "Old Passworld ไม่ถูกต้อง <br>";
             echo "<a href='index.php'>กลับหน้าหลัก</a>";
+            header( "refresh:1; url=index.php" );
             
         }else{
             if($stmt->execute()){
                 echo "finish " . $_POST["did"] . " password changed <br>";
-                echo "<a href='index.php'>กลับหน้าหลัก</a>";
+                header( "refresh:1; url=index.php" );
             }
         }
     }
