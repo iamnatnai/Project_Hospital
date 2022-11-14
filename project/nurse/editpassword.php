@@ -8,7 +8,7 @@
     $stmt->bindParam(1, $_POST["password"]); 
     $stmt->bindParam(2, $_POST["nid"]);
 
-    $oldPass = $pdo->prepare("SELECT password FROM nurse WHERE nid = ?");
+    $oldPass = $pdo->prepare("SELECT nurse.password FROM nurse WHERE nid = ?");
     $oldPass->bindParam(1,$_POST['nid']);
     $oldPass->execute();
     $row = $oldPass->fetch();
@@ -16,10 +16,12 @@
         $row = $oldPass->fetch();
         if($_POST['Opass'] != $row['password']){
             echo "Old Passworld ไม่ถูกต้อง";
+            header( "refresh:1; url=index.php" );
         }else{
             if($stmt->execute()){
                 echo "finish" . $_POST["nid"] . "Change Password";
-                echo "กลับหน้าหลัก" . "<a href='index.php'>This is a link</a>";
+                echo "กลับหน้าหลัก" ;
+                header( "refresh:1; url=index.php" );
             }
         }
     }

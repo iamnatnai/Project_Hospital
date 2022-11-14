@@ -49,6 +49,7 @@
     <title>Document</title>
 </head>
 <body>
+<?php include 'nav.php' ?>
     Welcome<a href="../nurseinfo.php?nid=<?=$_SESSION['username']?>"><?=$_SESSION['fullname']?></a>
     <a href="../logoutN.php">Log out</a><br>
     <form action="insert_patient.php" method="post">

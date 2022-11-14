@@ -184,7 +184,7 @@ $row = $stmt->fetch();
     </nav>
 
     <div class="main-block">
-        <form action="editpassworddoctor.php">
+        <form action="editpassworddoctor.php" method="POST">
             <h1>Change Password</h1>
             <fieldset>
                 <legend>
@@ -202,9 +202,9 @@ $row = $stmt->fetch();
                     <div>
                         <div><label>Old Password ⠀⠀⠀⠀⠀⠀</label><input type="text" name="Opass" required><br></div>
                         <div><label>New Password ⠀⠀⠀⠀⠀⠀</label><input name="password" id="password" type="password" onkeyup='check();'
-                                                                 required pattern="\d{8,20}" /><br></div>
+                                                                 required pattern="[a-zA-Z0-9]{8,20}" /><br></div>
                         <div><label>Re-type New Password ⠀⠀⠀⠀⠀⠀</label><input type="password" name="confirm_password" id="confirm_password"
-                                                                 onkeyup='check();' pattern="\d{8,20}" required /> <br></div>
+                                                                 onkeyup='check();' pattern="[a-zA-Z0-9]{8,20}" required /> <br></div>
                         <div> <span id='message'></span><br> </div>
                     </div>
                 </div>
