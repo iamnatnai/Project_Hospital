@@ -2,7 +2,9 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <script src="https://kit.fontawesome.com/d711d18929.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/index.css">
     <script>
         var xmlHttp;
         function send() {
@@ -30,7 +32,6 @@
         }
 
         body {
-            font-family: Arial;
             padding: 10px;
             background: #f1f1f1;
         }
@@ -53,6 +54,9 @@
             background-color: #ddd;
             color: black;
         }
+        #home{
+            float:right;
+        }
         
     </style>
 </head>
@@ -62,14 +66,20 @@
     <nav class="topnav">
         <a href="../doctor/loginD.php">Doctor</a>
         <a href="../nurse/loginN.php">Nurse</a>
-        <a href="../index.html">homepage</a>
-        <a href="#" style="float:right">medical personnel</a>
+        <div id="home">
+            <a href="../index.html">Homepage</a>
+        </div>
+        <!-- <a href="#" style="float:right">medical personnel</a> -->
     </nav>
-
-    <a href="doctorform.html">หมอ</a> | 
-    <a href="nurseform.html">พยาบาล</a> | 
-    <br><br>
-    ค้นหาชื่อพยาบาล : <input type="text" id="name" onkeyup="send()" pattern="[A-Za-z]+" title="Please enter only alphabet">
+    <div style="padding: 10px;">
+        <a href="doctorform.html">หมอ</a> | 
+        <a href="nurseform.html">พยาบาล</a>
+        <br>
+    </div>
+    <div style="padding: 10px; padding-top:0px ;">
+        ค้นหาชื่อพยาบาล : <input type="text" id="name" onkeyup="send()" pattern="[A-Za-z]+" title="Please enter only alphabet">
+    </div>
+    
     <div id="result"></div>
     
 </body>
