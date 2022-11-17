@@ -13,7 +13,7 @@
 
         body {
             /* font-family: Arial; */
-            padding: 10px;
+            padding: 0;
             background: #f1f1f1;
         }
 
@@ -44,10 +44,10 @@
 <body>
 
     <nav class="topnav">
-        <a href="#">Doctor</a>
+        <a href="../index.html">Home</a>
+        <a href="../doctor/loginD.php">Doctor</a>
         <a href="../nurse/loginN.php">Nurse</a>
-        <a href="../index.html">homepage</a>
-        <a href="../other/doctorform.html" style="float:right">medical personnel</a>
+        <a href="../other/doctorform.html" style="float:right">Medical Personal</a>
     </nav>
 
     <form action="check-loginD.php" method="post">
@@ -55,19 +55,18 @@
             <div class="relative bg-white pt-10 pb-8 px-10 shadow-xl mx-auto w-96 rounded-lg">
                 <div class="divide-y divide-gray-300/50 w-full">
                     <div class="space-y-6 py-8 text-base  text-gray-600">
-
+                        <img src="../img/doctor.png" alt="doctor" width="50%" style="margin: 0 auto;">
                         <?php if (isset($_GET['message'])) : ?>
                             <p class="text-sm text-red-500"><?= $_GET['message']; ?></p>
                         <?php endif; ?>
-
-                        <p class="text-xl font-medium leading-7">Hospital System</p>
+                        <p class="text-xl font-medium leading-7" style="text-align: center;">Doctor</p>
                         <div class="space-y-4 flex flex-col">
                             <input type="text" name="username" placeholder="Username" class="border border-gray-300/50 p-1 rounded focus:outline-none" required />
 
                             <input type="password" name="password" placeholder="Password" class="border border-gray-300/50 p-1 rounded focus:outline-none" required />
                         </div>
                     </div>
-                    <div class="pt-8 text-base font-semibold leading-7">
+                    <div class="pt-6 text-base font-semibold leading-7">
                         <button type="submit" class="bg-pink-500 hover:bg-pink-600 px-4 py-1 text-white rounded">
                             Login
                         </button><br>
