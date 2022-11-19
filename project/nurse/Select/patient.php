@@ -61,6 +61,7 @@ $patient->execute();
             <th>Date Of Birth</th>
             <th>Age</th>
             <th>Sex</th>
+            <td>To do</td>
             <th>History</th>
         </tr>
         <?php while ($row = $patient->fetch()) : ?>
@@ -70,12 +71,13 @@ $patient->execute();
                 <td><?= $row['pdob'] ?></td>
                 <td><?= $row['page'] ?></td>
                 <td><?= $row['psex'] ?></td>
+                <td><a href="./patient_follow.php?pid=<?= $row['pid'] ?>">To do</a></td>
                 <td><a href="patient_history.php?pid=<?= $row['pid'] ?>">History</a></td>
             </tr>
         <?php endwhile ?>
     </table>
     </div>
-    <a href="../index.php">Back</a>
+    <a href="./patient.php">Back</a>
 </body>
 
 </html>

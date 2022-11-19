@@ -106,7 +106,7 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 echo "ไม่พบข้อมูล";
             }
         } ?>
-        <button> <a href="../index.php">Back</a> </button>
+        <button> <a href="./patient.php">Back</a> </button>
     </div>
 </body>
 

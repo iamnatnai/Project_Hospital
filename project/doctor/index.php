@@ -21,7 +21,7 @@ if (empty($_SESSION['usernameD'])) {
 
     <nav class="nav flex-column">
         <br>
-        <a href="ordersheet/insertdos.php">Doctor's order sheet</a> | 
+        <a href="ordersheet/insert.php">Doctor's order sheet</a> | 
         <a href="check/check-doctor.php">หมอคนไหนรักษาคนไข้คนไหนบ้าง</a><br>
     </nav>
 

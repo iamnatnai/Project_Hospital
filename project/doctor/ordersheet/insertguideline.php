@@ -1,6 +1,6 @@
 <?php
-$pdo = new PDO("mysql:host=localhost;dbname=system_hospital;charset=utf8", "root", "");
-$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $pdo = new PDO("mysql:host=localhost;dbname=system_hospital;charset=utf8", "root", "");
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,11 +11,12 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 <body>
     <?php
-    $sid=$_POST["sid"];
+    $sid=$_GET["sid"];
     $stmt = $pdo->prepare("select sid from seeadoctor where sid=?");
-    $stmt->bindParam(1, $_POST["sid"]);
+    $stmt->bindParam(1, $_GET["sid"]);
     $stmt->execute();
     $row = $stmt->fetch(); ?>
+    
     รหัสการตรวจ : <?= $row["sid"] ?><br><br>
     <form action="insertdos.php">
         <input type="hidden" name="sid" value="<?=$sid?>">
