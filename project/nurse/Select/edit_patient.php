@@ -106,6 +106,7 @@
 </head>
 <body>
 
+    <?php include './nav.php' ?>
     <form action="update_patient.php" method="get">
 
         <div style="display: flex;">
@@ -144,7 +145,6 @@
                     <input type="tel" name="phone[]" id="phone1" required pattern="\d{10}" value="<?=$row['pnumber']?>">
                 <?php endwhile ?>
             </div>
-            
         </div>
         
         <div>

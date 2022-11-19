@@ -1,13 +1,13 @@
 <?php
-$pdo = new PDO("mysql:host=localhost;dbname=system_hospital;charset=utf8", "root", "");
-$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-?>
-<?php
-$status = "active";
-$seeadoctor = $pdo->prepare("insert into seeadoctor(did,pid) values(?,?)");
-$seeadoctor->bindParam(1,$_POST["did"]);
-$seeadoctor->bindParam(2,$_POST["pid"]);
-$seeadoctor->execute();
+    $pdo = new PDO("mysql:host=localhost;dbname=system_hospital;charset=utf8", "root", "");
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    ?>
+    <?php
+    $status = "Active";
+    $seeadoctor = $pdo->prepare("insert into seeadoctor(did,pid,entrydate) values(?,?,curdate())");
+    $seeadoctor->bindParam(1,$_POST["did"]);
+    $seeadoctor->bindParam(2,$_POST["pid"]);
+    $seeadoctor->execute();
 
 // $stmt = $pdo->prepare("insert into dos (dosdate,dostime,guideline,status)
 //                     values(curdate(),curtime(),?,?)");

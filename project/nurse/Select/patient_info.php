@@ -44,7 +44,7 @@
             border-top: 1px solid pink;
         }
 
-        button {
+        .btn {
             width: 100%;
             padding: 10px 0;
             margin: 10px auto;
@@ -56,7 +56,7 @@
             color: #fff;
         }
 
-        button:hover {
+        .btn:hover {
             background: palevioletred;
         }
 
@@ -119,11 +119,12 @@
 </head>
 
 <body>
-    <nav class="topnav">
+    <!-- <nav class="topnav">
         <a href="../index.html">homepage</a>
         <a href="logoutD.php">logout</a>
         <a href="../other/doctorform.html" style="float:right">medical personnel</a>
-    </nav>
+    </nav> -->
+    <?php include './nav.php' ?>
     <fieldset>
         <legend>
             <h3>Patient Details</h3>
@@ -133,7 +134,7 @@
                 <?php while ($row = $pInfo->fetch()) : ?>
                     <div class="account-details">
                         <div><label>Patient ID ⠀⠀⠀</label><input type="text" value="<?= $row['pid'] ?>" readonly></div> <br>
-                        <div><label>Firstname Lastname⠀⠀⠀</label><input type="text" value="<?= $row['pfnamelname'] ?>" readonly></div> <br>
+                        <div><label>Name⠀⠀⠀</label><input type="text" value="<?= $row['pfnamelname']?>" size="40" readonly></div> <br>
                         <div><label>Date of birth ⠀⠀⠀</label><input type="text" value="<?= $row['pdob'] ?>" readonly></div> <br>
                         <div><label>age⠀⠀⠀</label><input type="text" value="<?= $row['page'] ?>" readonly></div> <br>
                         <div><label>Gender ⠀⠀⠀</label><input type="text" value="<?= $row['psex'] ?>" readonly></div> <br>
@@ -144,7 +145,7 @@
                 <div class="bottom"><input type="text" value="<?= $row['pnumber'] ?>" readonly></div>
             <?php endwhile ?>
             </p>
-            <p>Patient Disease ⠀⠀⠀ :
+            <p>Patient Disease ⠀⠀⠀
                 <?php while ($row = $pDisease->fetch()) : ?>
             <div class="bottom"><input type="text" value="<?= $row['pdisease'] ?>" readonly></div>
         <?php endwhile ?>
@@ -152,8 +153,7 @@
             </div>
         </div>
     </fieldset>
-
-    <button> <a href="../index.php">back to home nurse</a> </button>
+    <button class="btn"><a href="./edit_patient.php?pid=<?=$pid?>">Edit</a></button>
 </body>
 
 </html>

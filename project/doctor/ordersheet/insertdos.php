@@ -14,7 +14,7 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     <a href="editdos.php">Edit</a> | 
     <a href="deletedos.php">Delete</a> <br><br>
     <form action="insert.php" method="post">
-        <input type="hidden" name="did" value="$_SESSION['usernameD']">
+        <input type="hidden" name="did" value="<?=$_SESSION['usernameD']?>">
         <label for="pid">Patient ID : </label>
         <input type="text" name="pid"><br>
         <!-- <label for="id">Doctor's order sheet ID : </label>
