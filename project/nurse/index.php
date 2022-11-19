@@ -17,11 +17,17 @@ if (empty($_SESSION['username'])) {
 
 <body>
     <?php include 'nav.php' ?>
+<<<<<<< Updated upstream
     Welcome <a href="nurseinfo.php?nid=<?= $_SESSION['username'] ?>"><?= $_SESSION['fullname'] ?></a> <br>
     <a href="./Select/patient.php">Patients</a> <br>
     <a href="./Insert/patient_form.php">Add Patient</a>  <br>
     <a href="./Select/patient_follow.php">Patient to do list</a> <br>
     <a href="changepassword.php?nid=<?php echo $_SESSION['username']?>">เปลี่ยนรหัสผ่าน</a>
+=======
+    <a href="./Select/patient.php">Patients</a> |
+    <a href="./Insert/patient_form.php">Add Patient</a> |
+    <a href="./Select/patient_follow.php">Patient to do list</a>
+>>>>>>> Stashed changes
 </body>
 
 </html>

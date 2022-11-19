@@ -46,15 +46,16 @@
 
 <body>
     <header class="header">
-        <a href="./index.html"><img src="img/logo.png" alt="logo" width="100" height="100"></a>
+        <a href="./index.php"><img src="img/logo.png" alt="logo" width="100" height="100"></a>
         <h2>Rajavithi Hospital </h2>
     </header>
 
-    <nav class="topnav">
+    <!-- <nav class="topnav">
         <a href="doctor/loginD.php">Doctor</a>
         <a href="nurse/loginN.php">Nurse</a>
         <a href="other/doctorform.html" style="float:right">Medical personal</a>
-    </nav>
+    </nav> -->
+    <?php include './nav.php' ?>
 
     <section class="row">
         <div class="leftcolumn">
@@ -84,7 +85,11 @@
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.2415405941374!2d100.5346069145081!3d13.764302390339397!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e29eb3c30dc06f%3A0x4a136845b50ee1b9!2z4LmC4Lij4LiH4Lie4Lii4Liy4Lia4Liy4Lil4Lij4Liy4LiK4Lin4Li04LiW4Li1!5e0!3m2!1sth!2sth!4v1667552826166!5m2!1sth!2sth"
                     width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade"></iframe>
+<<<<<<< Updated upstream:project/index.html
                 
+=======
+                <p>ที่อยู่ : 2 ถ.พญาไท แขวง ทุ่งพญาไท เขตราชเทวี กรุงเทพมหานคร 10400</p>
+>>>>>>> Stashed changes:project/index.php
             </aside>
 
             <article class="card">

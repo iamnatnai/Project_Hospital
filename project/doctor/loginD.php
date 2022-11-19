@@ -44,7 +44,7 @@
 <body>
 
     <nav class="topnav">
-        <a href="../index.html">Home</a>
+        <a href="../index.php">Home</a>
         <a href="../doctor/loginD.php">Doctor</a>
         <a href="../nurse/loginN.php">Nurse</a>
         <a href="../other/doctorform.html" style="float:right">Medical Personal</a>

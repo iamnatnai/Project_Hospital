@@ -62,7 +62,11 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 </head>
 
 <body>
+<<<<<<< Updated upstream
     <?php include 'nav.php' ?> <br> <hr>
+=======
+    <?php include './nav.php'?>
+>>>>>>> Stashed changes
     <h3>เช็คสิ่งที่พยาบาลต้องดูแลคนไข้</h3>
     <form action="">
         <label for="pid">กรอกรหัสคนไข้: </label>
