@@ -1,11 +1,19 @@
 <?php
-session_start();
 $pdo = new PDO("mysql:host=localhost;dbname=system_hospital;charset=utf8", "root", "");
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 ?>
+<?php
+$status = "Active";
+$stmt = $pdo->prepare("insert into dos (sid,dosdate,dostime,guideline,status)
+                    values(?,curdate(),curtime(),?,?)");
+$stmt->bindParam(1, $_POST["sid"]);
+$stmt->bindParam(2, $_POST["guideline"]);
+$stmt->bindParam(3, $status);
+$stmt->execute();
+// 
+?>
 
-<!DOCTYPE html>
-<html lang="en">
+<!-- <html>
 
 <head>
     <meta charset="UTF-8">
@@ -15,19 +23,6 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     <a href="insertdos.php">Insert</a> |
     <a href="editdos.php">Edit</a> |
     <a href="deletedos.php">Delete</a> <br><br>
-    <form action="insertseeadoctor.php" method="post">
-        <input type="hidden" name="did" value="<?= $_SESSION['usernameD'] ?>">
-        <label for="pid">Patient ID : </label>
-        <input type="text" name="pid" id="pid"><br>
-        <!-- <label for="id">Doctor's order sheet ID : </label>
-        <input type="text" name="id" pattern="[O]\d{3}" title="">
-        ** Use capital letter that start with O and folloed by 3 digits.
-        <br>
-        <label for="guide">Guideline : </label><br>
-        <textarea name="guide" cols="30" rows="5"></textarea>
-        <br>-->
-        <input type="submit" value="OK">
-    </form>
 </body>
 
-</html>
+</html> -->

@@ -9,7 +9,7 @@
     $seeadoctor->bindParam(2,$_POST["pid"]);
     $seeadoctor->execute();
     $sid = $pdo->lastInsertId();
-    header("location:insert.php?sid=".$sid);
+    header("location:insertguideline.php?sid=".$sid);
 
 // $stmt = $pdo->prepare("insert into dos (dosdate,dostime,guideline,status)
 //                     values(curdate(),curtime(),?,?)");
