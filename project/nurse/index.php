@@ -17,6 +17,7 @@ if (empty($_SESSION['username'])) {
 
 <body>
     <?php include 'nav.php' ?>
+    <br>
     <a href="./Select/patient.php">Patients</a> |
     <a href="./Insert/patient_form.php">Add Patient</a>
 </body>
