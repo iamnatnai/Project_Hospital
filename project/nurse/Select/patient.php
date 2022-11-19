@@ -16,22 +16,30 @@ $patient->execute();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@200&display=swap');
+        body{
+            background-color: #f9f9f9;
+            font-family: 'Kanit', sans-serif;
+        }
+
         div,
         h3 {
             text-align: center;
         }
 
-        form,
         table {
-            margin: auto;
+            background-color: #FFFF;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 2rem auto;
             text-align: center;
         }
 
+        th{
+            font-size: 20px;
+        }
+        
         th,
         td,
         tr {
@@ -39,50 +47,29 @@ $patient->execute();
             border: 1px;
         }
 
-        th,
-        tr,
-        td,
-        table {
-            border: 1px solid black;
-        }
-
-        input[type='text'] {
-            padding: 5px;
-        }
-
-        input[type='submit'] {
-            cursor: pointer;
-            padding: 5px;
-        }
-        .contain {
-            padding: 20px 250px;
-            display: flex;
-            flex-direction: column;
-        }
         
     </style>
 </head>
 
 <body>
     <?php include './nav.php' ?>
-    <table class="table table-danger table-hover ">
+    <div>
+    <table>
         <tr>
             <th>Patient ID</th>
             <th>Name</th>
             <th>Date Of Birth</th>
             <th>Age</th>
             <th>Sex</th>
-            <th>To do</th>
             <th>History</th>
         </tr>
         <?php while ($row = $patient->fetch()) : ?>
             <tr>
                 <td><a href="patient_info.php?pid=<?= $row['pid'] ?>"><?= $row['pid'] ?></a></td>
-                <td><?= $row['pfnamelname'] ?></td>
+                <td style="font-weight: bold;"><?= $row['pfnamelname'] ?></td>
                 <td><?= $row['pdob'] ?></td>
                 <td><?= $row['page'] ?></td>
                 <td><?= $row['psex'] ?></td>
-                <td><a href="../Select/patient_follow.php?pid=<?= $row['pid'] ?>">To do</a></td>
                 <td><a href="patient_history.php?pid=<?= $row['pid'] ?>">History</a></td>
             </tr>
         <?php endwhile ?>

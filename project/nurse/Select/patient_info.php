@@ -39,6 +39,9 @@
 
 <head>
     <style>
+        body{
+            font-family: 'Kanit', sans-serif;
+        }
         fieldset {
             border: none;
             border-top: 1px solid pink;
@@ -101,7 +104,9 @@
         }
 
         input {
-            padding: 5px;
+            font-weight: bold;
+            font-family: 'Kanit', sans-serif;
+            padding: 10px;
             vertical-align: middle;
         }
 
@@ -136,7 +141,7 @@
                         <div><label>Patient ID ⠀⠀⠀</label><input type="text" value="<?= $row['pid'] ?>" readonly></div> <br>
                         <div><label>Name⠀⠀⠀</label><input type="text" value="<?= $row['pfnamelname']?>" size="40" readonly></div> <br>
                         <div><label>Date of birth ⠀⠀⠀</label><input type="text" value="<?= $row['pdob'] ?>" readonly></div> <br>
-                        <div><label>age⠀⠀⠀</label><input type="text" value="<?= $row['page'] ?>" readonly></div> <br>
+                        <div><label>Age⠀⠀⠀</label><input type="text" value="<?= $row['page'] ?>" readonly></div> <br>
                         <div><label>Gender ⠀⠀⠀</label><input type="text" value="<?= $row['psex'] ?>" readonly></div> <br>
                     </div>
                 <?php endwhile ?>
@@ -147,7 +152,7 @@
             </p>
             <p>Patient Disease ⠀⠀⠀
                 <?php while ($row = $pDisease->fetch()) : ?>
-            <div class="bottom"><input type="text" value="<?= $row['pdisease'] ?>" readonly></div>
+            <div class="bottom"><input type="text" value="<?= $row['pdisease'] ?>" size="10" readonly></div>
         <?php endwhile ?>
         </p>
             </div>
