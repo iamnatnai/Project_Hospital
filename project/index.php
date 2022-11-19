@@ -97,7 +97,7 @@
                 <p> <i class="fa-brands fa-facebook"></i> : click <a href="https://www.facebook.com/PR.Rajavithi/"
                         target="_black"> facebook</a> </p>
                 <p> <i class="fa-brands fa-youtube"></i> : click <a
-                        href="https://www.youtube.com/channel/UC7bX792qKQxrHNwoG68apZA"> youtube </a></p>
+                        href="https://www.youtube.com/channel/UC7bX792qKQxrHNwoG68apZA" target="_black"> youtube </a></p>
             </article>
         </div>
     </section>
