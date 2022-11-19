@@ -23,8 +23,8 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         <br>
         <label for="guide">Guideline : </label><br>
         <textarea name="guide" cols="30" rows="5"></textarea>
-        <br>
-        <input type="submit" value="Insert"> -->
+        <br>-->
+        <input type="submit" value="OK"> 
     </form>
 </body>
 </html>

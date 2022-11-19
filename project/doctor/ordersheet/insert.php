@@ -7,14 +7,15 @@ $status = "active";
 $seeadoctor = $pdo->prepare("insert into seeadoctor(did,pid) values(?,?)");
 $seeadoctor->bindParam(1,$_POST["did"]);
 $seeadoctor->bindParam(2,$_POST["pid"]);
+$seeadoctor->execute();
 
-$stmt = $pdo->prepare("insert into dos (dosdate,dostime,guideline,status)
-                    values(curdate(),curtime(),?,?)");
-$stmt->bindParam(1, $_POST["id"]);
-$stmt->bindParam(2, $_POST["guide"]);
-$stmt->bindParam(3, $status);
-$stmt->execute();
-header("location:showinsert.php");
+// $stmt = $pdo->prepare("insert into dos (dosdate,dostime,guideline,status)
+//                     values(curdate(),curtime(),?,?)");
+// $stmt->bindParam(1, $_POST["id"]);
+// $stmt->bindParam(2, $_POST["guide"]);
+// $stmt->bindParam(3, $status);
+// $stmt->execute();
+// header("location:showinsert.php");
 ?>
 
 <!-- <html>
