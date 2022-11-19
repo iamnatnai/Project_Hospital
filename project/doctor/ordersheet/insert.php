@@ -4,14 +4,21 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
 </head>
+
 <body>
     <?php
-    $sid = $pdo->prepare("select sid from ")
+    $stmt = $pdo->prepare("select sid from seeadoctor where sid=?");
+    $stmt->bindParam(1, $_POST["sid"]);
+    $stmt->execute();
+    $row = $stmt->fetch(); ?>
 
-    ?>
+    รหัสการตรวจ : <?= $row["sid"] ?><br><br>
+    <label for="guide">Guideline : </label><br>
+    <textarea name="guide" cols="30" rows="5"></textarea>
 
 </body>
 
