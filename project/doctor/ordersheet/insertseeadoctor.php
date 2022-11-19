@@ -8,6 +8,13 @@
     $seeadoctor->bindParam(1,$_POST["did"]);
     $seeadoctor->bindParam(2,$_POST["pid"]);
     $seeadoctor->execute();
+    $stmt = $pdo->prepare("select sid from seeadoctor");
+    if ($stmt->rowCount() > 0) {
+        while($row = $stmt->fetch())
+        {
+            $sid = $row["sid"];
+        }
+    }
     $sid = $pdo->lastInsertId();
     header("location:insertguideline.php?sid=".$sid);
 
