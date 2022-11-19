@@ -7,8 +7,8 @@
     $pdo = new PDO("mysql:host=localhost;dbname=system_hospital","root","");
     $pdo->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
     $patient = $pdo->prepare("SELECT * FROM followorder WHERE followorder.dosid IN
-    (SELECT seeadoctor.dosid FROM seeadoctor WHERE seeadoctor.pid IN
-     (SELECT patient.pid FROM patient WHERE patient.pid = ?))");
+    (SELECT dos.dosid FROM dos WHERE dos.sid IN
+     (SELECT seeadoctor.sid FROM seeadoctor WHERE seeadoctor.pid = ?))");
     $patient->bindParam(1,$pid);
     $patient->execute();
 ?>
@@ -20,21 +20,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        th,tr,td,table{
-            border: 1px solid black;
+        table {
+            margin: auto;
+            text-align: center;
+        }
+
+        th,
+        td {
+            padding: 10px;
+        }
+        .bottom {
+            margin-bottom: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px 0;
+            margin: 10px auto;
+            border-radius: 5px;
+            border: none;
+            background: pink;
+            font-size: 14px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        button:hover {
+            background: palevioletred;
+        }
+        .contain {
+            padding: 20px 150px;
+            display: flex;
+            flex-direction: column;
         }
     </style>
 </head>
 <body>
-    <?php if($patient->rowCount() > 0){?>
-        <table>
+<?php include 'nav.php' ?> <br> 
+<div class="contain">
+<?php if($patient->rowCount() > 0){?>
+        <table class="table"  border="1" >
             <tr>
                 <th>Nurse ID</th>
                 <th>Doctor's order sheet ID</th>
                 <th>Follow Date</th>
                 <th>Follow Time</th>
-                <th>Order Date</th>
-                <th>Order Time</th>
                 <th>Detail</th>
             </tr>
             <?php while($row = $patient->fetch()) : ?>
@@ -43,8 +73,6 @@
                     <td><?=$row['dosid']?></td>
                     <td><?=$row['followdate']?></td>
                     <td><?=$row['followtime']?></td>
-                    <td><?=$row['orderdate']?></td>
-                    <td><?=$row['ordertime']?></td>
                     <td><?=$row['detail']?></td>
                 </tr>
             <?php endwhile ?>
@@ -55,6 +83,10 @@
     } ?>
     
 
+</div>
+    
+    <button>
     <a href="patient.php">back to previous page</a>
+    </button>
 </body>
 </html>

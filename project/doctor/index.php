@@ -18,16 +18,7 @@ if (empty($_SESSION['usernameD'])) {
 <body>
 
     <?php include './nav.php'?>
-    <h5>
-        <br>
-        Welcome <a href="doctorinfo.php?did=<?= $_SESSION['usernameD'] ?>"><?= $_SESSION['fullnameD'] ?></a>
-    </h5>
-
-    <nav class="nav flex-column">
-    <br><a href="check/check-doctor.php">หมอคนไหนรักษาคนไข้คนไหนบ้าง</a><br>
-    <a href="changepassword.php?did=<?= $_SESSION['usernameD'] ?>">เปลี่ยนรหัสผ่าน</a>
-    </nav>
-
+    <a href="check/check-doctor.php">หมอคนไหนรักษาคนไข้คนไหนบ้าง</a><br>
 </body>
 
 </html>

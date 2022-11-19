@@ -1,5 +1,10 @@
+<?php 
+    session_start();
+    if(!empty($_SESSION['usernameD'])){
+        header("location: index.php");
+    } 
+?>
 <html>
-
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
@@ -44,7 +49,7 @@
 <body>
 
     <nav class="topnav">
-        <a href="../index.html">Home</a>
+        <a href="../index.php">Home</a>
         <a href="../doctor/loginD.php">Doctor</a>
         <a href="../nurse/loginN.php">Nurse</a>
         <a href="../other/doctorform.html" style="float:right">Medical Personal</a>

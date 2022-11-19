@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!DOCTYPE html>
     <html>
     <head>
@@ -76,32 +77,34 @@
     <body>
 
         <div class="navbar">
-            <a href="../index.php">Home</a>
-            <a href="../doctor/loginD.php">Doctor</a>
-            <a href="../nurse/loginN.php">Nurse</a>
-            
-            <div class="dropdown">
-                <button class="dropbtn" onclick="myFunction()"><?=$_SESSION['fullname']?>
-                    <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdown-content" id="myDropdowns">
-                    <a href="./nurseinfo.php?nid=<?=$_SESSION['username']?>">Personal Information</a>
-                    <a href="changepassword.php?nid=<?=$_SESSION['username']?>">Change Password</a>
-                    <a href="./logoutN.php">Log Out</a>
-                </div>
-            </div> 
-            <a href="../other/doctorform.html" style="float: right;">Medical Personal</a>
+            <a href="./index.php">Home</a>
+            <a href="./doctor/loginD.php">Doctor</a>
+            <a href="./nurse/loginN.php">Nurse</a>
+            <?php if(!empty($_SESSION['username'])): ?>
+                <div class="dropdown">
+                    <button class="dropbtn" onclick="myFunction()"><?=$_SESSION['fullname']?>
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content" id="myDropdown">
+                        <a href="./nurse/nurseinfo.php?nid=<?=$_SESSION['username']?>">Personal Information</a>
+                        <a href="./nurse/changepassword.php?nid=<?php $_SESSION['username']?>">Change Password</a>
+                        <a href="./nurse/logoutN.php">Log Out</a>
+                    </div>
+                </div> 
+            <?php endif ?>
+            <a href="./other/doctorform.html" style="float: right;">Medical Personal</a>
         </div>
        
 
         <script>
         function myFunction() {
-        document.getElementById("myDropdowns").classList.toggle("show");
+            console.log("ASD");
+            document.getElementById("myDropdown").classList.toggle("show");
         }
 
         window.onclick = function(e) {
             if (!e.target.matches('.dropbtn')) {
-                var myDropdown = document.getElementById("myDropdowns");
+                var myDropdown = document.getElementById("myDropdown");
                 if (myDropdown.classList.contains('show')) {
                     myDropdown.classList.remove('show');
                     }

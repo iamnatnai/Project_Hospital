@@ -17,12 +17,17 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <style>
+        form,
+        h3 {
+            text-align: center;
+        }
         table,
         tr,
         td,
         th {
             border: 1px solid
         }
+
         * {
             box-sizing: border-box;
         }
@@ -51,24 +56,48 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             background-color: #ddd;
             color: black;
         }
+
+        .contain {
+            padding: 20px 250px;
+            display: flex;
+            flex-direction: column;
+        }
+        .bottom {
+            margin-bottom: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px 0;
+            margin: 10px auto;
+            border-radius: 5px;
+            border: none;
+            background: pink;
+            font-size: 14px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        button:hover {
+            background: palevioletred;
+        }
     </style>
 </head>
 
 <body>
     <form action="">
+    <?php include './nav.php' ?>
         
-    <nav class="topnav">
-        <a href="../../index.html">homepage</a>
-        <a href="loginD.php">logout</a>
-        <a href="../../other/doctorform.html" style="float:right">medical personnel</a>
-    </nav>
-    
-    <br>
-    <br>
-    <h4>
-        ใส่ Username หมอ <input type="text" name="keyword">
-        <input type="submit">
-    </h4>
+
+        <br>
+        <br>
+        <h4>
+            <h3>เช็คว่าหมอคนนี้รักษาคนไข้คนไหนบ้าง</h3>
+            <form action="">
+                ใส่ Username หมอ <input type="text" name="keyword">
+                <input type="submit">
+            </form>
+        </h4>
 
     </form>
 
@@ -83,21 +112,25 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $stmt->execute();
     ?>
 
-    <table class="table table-danger table-hover">
-        <tr>
-            <th> Doctor Name</th>
-            <th> Patient Name</th>
-            <th> Detail Patient </th>
-        </tr>
-        <?php while ($row = $stmt->fetch()) : ?>
+    <div class="contain">
+        <table class="table">
             <tr>
-                <td> <?= $row[0] ?> </td>
-                <td> <?= $row[1] ?> </td>
-                <?php echo "<td align='center'><a href='detail-patient.php?id=" . $row[2] . "'>" . "detail" . "</a></td>"; ?>
+                <th> Doctor Name</th>
+                <th> Patient Name</th>
+                <th> Detail Patient </th>
             </tr>
-        <?php endwhile; ?>
-    </table>
+            <?php while ($row = $stmt->fetch()) : ?>
+                <tr>
+                    <td> <?= $row[0] ?> </td>
+                    <td> <?= $row[1] ?> </td>
+                    <?php echo "<td align='center'><a href='detail-patient.php?id=" . $row[2] . "'>" . "detail" . "</a></td>"; ?>
+                </tr>
+            <?php endwhile; ?>
+        </table>
+    </div>
+    <button>
     <a href="../index.php">back to home doctor</a>
+    </button>
 </body>
 
 </html>

@@ -1,17 +1,17 @@
 <?php
-session_start();
-if (empty($_SESSION['usernameD'])) {
-    header("location: loginD.php");
-}
-$pdo = new PDO("mysql:host=localhost; dbname=system_hospital; charset=utf8", "root", "");
-$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    session_start();
+    if (empty($_SESSION['usernameD'])) {
+        header("location: loginD.php");
+    }
+    $pdo = new PDO("mysql:host=localhost; dbname=system_hospital; charset=utf8", "root", "");
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 ?>
 <?php
-$did = $_GET['did'];
-$stmt = $pdo->prepare("SELECT * FROM doctor WHERE did = ?");
-$stmt->bindParam(1, $_GET["did"]);
-$stmt->execute();
-$row = $stmt->fetch();
+    $did = $_GET['did'];
+    $stmt = $pdo->prepare("SELECT * FROM doctor WHERE did = ?");
+    $stmt->bindParam(1, $_GET["did"]);
+    $stmt->execute();
+    $row = $stmt->fetch();
 ?>
 
 <!DOCTYPE html>
@@ -191,7 +191,7 @@ $row = $stmt->fetch();
                     <h3>Details</h3>
                 </legend>
                 <div class="account-details">
-                    <div><label>Doctor ID ⠀⠀⠀⠀⠀⠀</label><input type="text" name="did" value="<?= $did ?>" readonly></div>
+                    <div><label>Doctor ID</label><input type="text" name="did" value="<?= $did ?>" readonly></div>
                 </div>
             </fieldset>
             <fieldset>
@@ -200,10 +200,10 @@ $row = $stmt->fetch();
                 </legend>
                 <div class="personal-details">
                     <div>
-                        <div><label>Old Password ⠀⠀⠀⠀⠀⠀</label><input type="text" name="Opass" required><br></div>
-                        <div><label>New Password ⠀⠀⠀⠀⠀⠀</label><input name="password" id="password" type="password" onkeyup='check();'
+                        <div><label>Old Password</label><input type="text" name="Opass" required><br></div>
+                        <div><label>New Password</label><input name="password" id="password" type="password" onkeyup='check();'
                                                                  required pattern="[a-zA-Z0-9]{8,20}" /><br></div>
-                        <div><label>Re-type New Password ⠀⠀⠀⠀⠀⠀</label><input type="password" name="confirm_password" id="confirm_password"
+                        <div><label>Re-type New Password</label><input type="password" name="confirm_password" id="confirm_password"
                                                                  onkeyup='check();' pattern="[a-zA-Z0-9]{8,20}" required /> <br></div>
                         <div> <span id='message'></span><br> </div>
                     </div>
