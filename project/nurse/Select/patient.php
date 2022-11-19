@@ -45,7 +45,6 @@ $patient->execute();
         table {
             border: 1px solid black;
         }
-<<<<<<< Updated upstream
 
         input[type='text'] {
             padding: 5px;
@@ -60,20 +59,12 @@ $patient->execute();
             display: flex;
             flex-direction: column;
         }
-=======
->>>>>>> Stashed changes
         
     </style>
 </head>
 
 <body>
-<<<<<<< Updated upstream
-    <?php include 'nav.php' ?>
-    Welcome <a href="../nurseinfo.php?nid=<?= $_SESSION['username'] ?>"><?= $_SESSION['fullname'] ?></a>
-    <div class="contain"> 
-=======
     <?php include './nav.php' ?>
->>>>>>> Stashed changes
     <table class="table table-danger table-hover ">
         <tr>
             <th>Patient ID</th>
@@ -81,6 +72,7 @@ $patient->execute();
             <th>Date Of Birth</th>
             <th>Age</th>
             <th>Sex</th>
+            <th>To do</th>
             <th>History</th>
         </tr>
         <?php while ($row = $patient->fetch()) : ?>
@@ -90,6 +82,7 @@ $patient->execute();
                 <td><?= $row['pdob'] ?></td>
                 <td><?= $row['page'] ?></td>
                 <td><?= $row['psex'] ?></td>
+                <td><a href="../Select/patient_follow.php?pid=<?= $row['pid'] ?>">To do</a></td>
                 <td><a href="patient_history.php?pid=<?= $row['pid'] ?>">History</a></td>
             </tr>
         <?php endwhile ?>

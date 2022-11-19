@@ -78,20 +78,6 @@ if (empty($_SESSION['username'])) {
 </head>
 
 <body>
-<<<<<<< Updated upstream
-    <?php include 'nav.php' ?>
-    <div class="contain">
-
-       <p>Welcome <a href="../nurseinfo.php?nid=<?= $_SESSION['username'] ?>"><?= $_SESSION['fullname'] ?></a> </p> 
-        <form action="insert_patient.php" method="post">
-            <div class="form">
-                <div class="firstlastname">
-                    <label for="name">First Name : </label>
-                    <input type="text" id="name" pattern="[\DA-Za-z]{1,}" name="fname" required title="First name must contain characters a - z , A-Z only!"><br>
-                    <label for="name">Last Name : </label>
-                    <input type="text" id="name" pattern="[\DA-Za-z]{1,}" name="lname" required title="Last name must contain characters a - z , A-Z only!">
-                </div>
-=======
 <?php include './nav.php' ?>
     <form action="insert_patient.php" method="post">
         <div class="form">
@@ -100,7 +86,6 @@ if (empty($_SESSION['username'])) {
                 <input type="text" id="name"  pattern="[\DA-Za-z]{1,}" name="fname" required title="First name must contain characters a - z , A-Z only!"><br>
                 <label for="name">Last Name : </label>
                 <input type="text" id="name" pattern="[\DA-Za-z]{1,}" name="lname" required title="Last name must contain characters a - z , A-Z only!">
->>>>>>> Stashed changes
             </div>
 
             <div class="form">

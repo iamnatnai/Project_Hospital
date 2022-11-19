@@ -65,7 +65,6 @@ $row = $stmt->fetch();
             padding: 0;
             margin: 0;
             outline: none;
-            font-family: Roboto, Arial, sans-serif;
             font-size: 14px;
             color: #666;
         }
@@ -135,7 +134,7 @@ $row = $stmt->fetch();
             background: transparent;
         }
 
-        button {
+        .btn{
             width: 100%;
             padding: 10px 0;
             margin: 10px auto;
@@ -177,11 +176,12 @@ $row = $stmt->fetch();
 </head>
 
 <body>
-    <nav class="topnav">
+    <!-- <nav class="topnav">
         <a href="../index.html">homepage</a>
         <a href="loginD.php">logout</a>
         <a href="../other/doctorform.html" style="float:right">medical personnel</a>
-    </nav>
+    </nav> -->
+    <?php include './nav.php'?>
 
     <div class="main-block">
         <form action="editpassword.php" method="POST">
@@ -209,8 +209,7 @@ $row = $stmt->fetch();
                     </div>
                 </div>
             </fieldset>
-            <button type="submit" href="/">Submit</button>
-            <button> <a href="index.php">back to home nurse</a> </button>
+            <button  class="btn" type="submit" href="/">Submit</button>
         </form>
     </div>
 </body>

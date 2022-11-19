@@ -62,24 +62,15 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 </head>
 
 <body>
-<<<<<<< Updated upstream
-    <?php include 'nav.php' ?> <br> <hr>
-=======
     <?php include './nav.php'?>
->>>>>>> Stashed changes
     <h3>เช็คสิ่งที่พยาบาลต้องดูแลคนไข้</h3>
-    <form action="">
-        <label for="pid">กรอกรหัสคนไข้: </label>
-        <input type="text" name="pid">
-        <input type="submit" value="ค้นหา">
-    </form>
     <br>
     <div>
         <?php
-        $stmt = $pdo->prepare("SELECT DISTINCT patient.pid , patient.pfnamelname , dos.guideline , dos.dosdate , dos.dostime 
+        $stmt = $pdo->prepare("SELECT DISTINCT patient.pid , patient.pfnamelname , dos.guideline , dos.dosdate , dos.dostime , dos.status
             FROM patient JOIN seeadoctor JOIN dos 
-            ON patient.pid = seeadoctor.pid AND seeadoctor.dosid = dos.dosid
-            AND patient.pid = ?");
+            ON patient.pid = seeadoctor.pid AND seeadoctor.sid = dos.sid
+            AND patient.pid = ? AND dos.status = 'Active'");
 
         if (!empty($_GET['pid'])) {
             $value = $_GET["pid"];
@@ -95,6 +86,7 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                         <th>สิ่งที่ต้องทำ</th>
                         <th>วัน เดือน ปี ที่สั่ง</th>
                         <th>เวลาที่สั่ง</th>
+                        <th>สถานะ</th>
                     </tr>
 
                     <?php
@@ -105,6 +97,7 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                             <td><?= $row['guideline'] ?></td>
                             <td><?= $row['dosdate'] ?></td>
                             <td><?= $row['dostime'] ?></td>
+                            <td><?= $row['status'] ?></td>
                         </tr>
                     <?php } ?>
                 </table>

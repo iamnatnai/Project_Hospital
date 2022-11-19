@@ -4,6 +4,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <style>
+            @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@200&display=swap');
             body{
                 margin: 0;
             }
@@ -11,7 +12,7 @@
                 padding: 0;
                 overflow: hidden;
                 background-color: palevioletred;
-                font-family: Arial, Helvetica, sans-serif;
+                font-family: 'Kanit', sans-serif;
             }
 
             .navbar a {
@@ -106,19 +107,6 @@
                     }
             }
         }
-<<<<<<< Updated upstream
-    </style>
-</head>
-
-<body>
-    <nav class="topnav">
-        <a href="../../index.html">homepage</a>
-        <a href="../logoutN.php">logout</a>
-        <a href="../../other/doctorform.html" style="float:right">medical personnel</a>
-    </nav>
-</body>
-=======
         </script>
     </body>
 </html>
->>>>>>> Stashed changes

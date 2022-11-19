@@ -7,8 +7,8 @@
     $pdo = new PDO("mysql:host=localhost;dbname=system_hospital","root","");
     $pdo->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
     $patient = $pdo->prepare("SELECT * FROM followorder WHERE followorder.dosid IN
-    (SELECT seeadoctor.dosid FROM seeadoctor WHERE seeadoctor.pid IN
-     (SELECT patient.pid FROM patient WHERE patient.pid = ?))");
+    (SELECT dos.dosid FROM dos WHERE dos.sid IN
+     (SELECT seeadoctor.sid FROM seeadoctor WHERE seeadoctor.pid = ?))");
     $patient->bindParam(1,$pid);
     $patient->execute();
 ?>
@@ -65,8 +65,6 @@
                 <th>Doctor's order sheet ID</th>
                 <th>Follow Date</th>
                 <th>Follow Time</th>
-                <th>Order Date</th>
-                <th>Order Time</th>
                 <th>Detail</th>
             </tr>
             <?php while($row = $patient->fetch()) : ?>
@@ -75,8 +73,6 @@
                     <td><?=$row['dosid']?></td>
                     <td><?=$row['followdate']?></td>
                     <td><?=$row['followtime']?></td>
-                    <td><?=$row['orderdate']?></td>
-                    <td><?=$row['ordertime']?></td>
                     <td><?=$row['detail']?></td>
                 </tr>
             <?php endwhile ?>

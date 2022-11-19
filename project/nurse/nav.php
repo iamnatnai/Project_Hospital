@@ -4,6 +4,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <style>
+            @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@200&display=swap');
             body{
                 margin: 0;
             }
@@ -11,7 +12,7 @@
                 padding: 0;
                 overflow: hidden;
                 background-color: palevioletred;
-                font-family: Arial, Helvetica, sans-serif;
+                font-family: 'Kanit', sans-serif;
             }
 
             .navbar a {
@@ -83,9 +84,9 @@
                 <button class="dropbtn" onclick="myFunction()"><?=$_SESSION['fullname']?>
                     <i class="fa fa-caret-down"></i>
                 </button>
-                <div class="dropdown-content" id="myDropdown">
+                <div class="dropdown-content" id="myDropdowns">
                     <a href="./nurseinfo.php?nid=<?=$_SESSION['username']?>">Personal Information</a>
-                    <a href="changepassword.php?nid=<?php $_SESSION['username']?>">Change Password</a>
+                    <a href="changepassword.php?nid=<?=$_SESSION['username']?>">Change Password</a>
                     <a href="./logoutN.php">Log Out</a>
                 </div>
             </div> 
@@ -95,30 +96,17 @@
 
         <script>
         function myFunction() {
-        document.getElementById("myDropdown").classList.toggle("show");
+        document.getElementById("myDropdowns").classList.toggle("show");
         }
 
         window.onclick = function(e) {
             if (!e.target.matches('.dropbtn')) {
-                var myDropdown = document.getElementById("myDropdown");
+                var myDropdown = document.getElementById("myDropdowns");
                 if (myDropdown.classList.contains('show')) {
                     myDropdown.classList.remove('show');
                     }
             }
         }
-<<<<<<< Updated upstream
-    </style>
-</head>
-
-<body>
-    <nav class="topnav">
-        <a href="../index.html">homepage</a>
-        <a href="logoutN.php">Log out</a>
-        <a href="../other/doctorform.html" style="float:right">medical personnel</a>
-    </nav>
-</body>
-=======
         </script>
     </body>
 </html>
->>>>>>> Stashed changes
