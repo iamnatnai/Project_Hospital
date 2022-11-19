@@ -8,13 +8,11 @@
     $seeadoctor->bindParam(1,$_POST["did"]);
     $seeadoctor->bindParam(2,$_POST["pid"]);
     $seeadoctor->execute();
-    $stmt = $pdo->prepare("select sid from seeadoctor");
+    $stmt = $pdo->prepare("select sid from seeadoctor order by sid desc limit 1");
     $stmt->execute();
     if ($stmt->rowCount() > 0) {
-        while($row = $stmt->fetch())
-        {
-            $sid = $row['sid'];
-        }
+        $row = $stmt->fetch();
+        $sid = $row['sid'];
     }
     header("location:insertguideline.php?sid=$sid");
 ?>
