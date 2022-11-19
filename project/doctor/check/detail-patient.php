@@ -78,6 +78,7 @@ try {
         label {
             width: 100%;
         }
+
         label {
             padding: 0 3px;
             text-align: right;
@@ -94,7 +95,8 @@ try {
             align-items: center;
             background: #fff;
         }
-        .bottom{
+
+        .bottom {
             margin-bottom: 5px;
         }
     </style>
@@ -102,9 +104,9 @@ try {
 
 <body>
     <nav class="topnav">
-        <a href="../../index.html">homepage</a>
-        <a href="../loginD.php">logout</a>
-        <a href="../../other/doctorform.html" style="float:right">medical personnel</a>
+        <a href="../index.html">homepage</a>
+        <a href="logoutD.php">logout</a>
+        <a href="../other/doctorform.html" style="float:right">medical personnel</a>
     </nav>
     <fieldset>
         <legend>
@@ -114,23 +116,23 @@ try {
             <div>
                 <?php while ($row = $pInfo->fetch()) : ?>
                     <div class="account-details">
-                        <div><label>Patient ID ⠀⠀⠀</label><input type="text" name="did" value="<?= $row['pid']?>" readonly></div> <br>
-                        <div><label>Firstname Lastname⠀⠀⠀</label><input type="text" name="did" value="<?= $row['pfnamelname']?>" readonly></div> <br>
-                        <div><label>Date of birth ⠀⠀⠀</label><input type="text" name="did" value="<?= $row['pdob']?>" readonly></div> <br>
-                        <div><label>age⠀⠀⠀</label><input type="text" name="did" value="<?= $row['page']?>" readonly></div> <br>
-                        <div><label>Gender ⠀⠀⠀</label><input type="text" name="did" value="<?= $row['psex']?>" readonly></div> <br>
+                        <div><label>Patient ID ⠀⠀⠀</label><input type="text" value="<?= $row['pid'] ?>" readonly></div> <br>
+                        <div><label>Firstname Lastname⠀⠀⠀</label><input type="text" value="<?= $row['pfnamelname'] ?>" readonly></div> <br>
+                        <div><label>Date of birth ⠀⠀⠀</label><input type="text" value="<?= $row['pdob'] ?>" readonly></div> <br>
+                        <div><label>age⠀⠀⠀</label><input type="text" value="<?= $row['page'] ?>" readonly></div> <br>
+                        <div><label>Gender ⠀⠀⠀</label><input type="text" value="<?= $row['psex'] ?>" readonly></div> <br>
                     </div>
                 <?php endwhile ?>
                 <p>Patient Tell. ⠀⠀⠀
                     <?php while ($row = $pTel->fetch()) : ?>
-                        <div class="bottom"><input type="text" name="did" value="<?= $row['pnumber']?>" readonly></div> 
-                    <?php endwhile ?>
-                </p>
-                <p>Patient Disease ⠀⠀⠀ :
-                    <?php while ($row = $pDisease->fetch()) : ?>
-                        <div class="bottom" ><input type="text" name="did" value="<?= $row['pdisease']?>" readonly></div> 
-                    <?php endwhile ?>
-                </p>
+                <div class="bottom"><input type="text" value="<?= $row['pnumber'] ?>" readonly></div>
+            <?php endwhile ?>
+            </p>
+            <p>Patient Disease ⠀⠀⠀ :
+                <?php while ($row = $pDisease->fetch()) : ?>
+            <div class="bottom"><input type="text" value="<?= $row['pdisease'] ?>" readonly></div>
+        <?php endwhile ?>
+        </p>
             </div>
         </div>
     </fieldset>

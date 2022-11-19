@@ -54,14 +54,19 @@ $patient->execute();
             cursor: pointer;
             padding: 5px;
         }
+        .contain {
+            padding: 20px 250px;
+            display: flex;
+            flex-direction: column;
+        }
         
     </style>
 </head>
 
 <body>
     <?php include 'nav.php' ?>
-    Welcome<a href="../nurseinfo.php?nid=<?= $_SESSION['username'] ?>"><?= $_SESSION['fullname'] ?></a>
-    <a href="../logoutN.php">Log out</a><br>
+    Welcome <a href="../nurseinfo.php?nid=<?= $_SESSION['username'] ?>"><?= $_SESSION['fullname'] ?></a>
+    <div class="contain"> 
     <table class="table table-danger table-hover ">
         <tr>
             <th>Patient ID</th>
@@ -82,6 +87,7 @@ $patient->execute();
             </tr>
         <?php endwhile ?>
     </table>
+    </div>
     <a href="../index.php">Back</a>
 </body>
 

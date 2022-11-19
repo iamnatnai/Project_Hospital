@@ -35,7 +35,7 @@
 <body>
     <nav class="topnav">
         <a href="../index.html">homepage</a>
-        <a href="loginN.php">logout</a>
+        <a href="logoutN.php">Log out</a>
         <a href="../other/doctorform.html" style="float:right">medical personnel</a>
     </nav>
 </body>

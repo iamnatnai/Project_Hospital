@@ -20,14 +20,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        th,tr,td,table{
-            border: 1px solid black;
+        table {
+            margin: auto;
+            text-align: center;
+        }
+
+        th,
+        td {
+            padding: 10px;
+        }
+        .bottom {
+            margin-bottom: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px 0;
+            margin: 10px auto;
+            border-radius: 5px;
+            border: none;
+            background: pink;
+            font-size: 14px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        button:hover {
+            background: palevioletred;
+        }
+        .contain {
+            padding: 20px 150px;
+            display: flex;
+            flex-direction: column;
         }
     </style>
 </head>
 <body>
-    <?php if($patient->rowCount() > 0){?>
-        <table>
+<?php include 'nav.php' ?> <br> 
+<div class="contain">
+<?php if($patient->rowCount() > 0){?>
+        <table class="table"  border="1" >
             <tr>
                 <th>Nurse ID</th>
                 <th>Doctor's order sheet ID</th>
@@ -55,6 +87,10 @@
     } ?>
     
 
+</div>
+    
+    <button>
     <a href="patient.php">back to previous page</a>
+    </button>
 </body>
 </html>

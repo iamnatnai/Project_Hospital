@@ -26,11 +26,14 @@ $nurseEmail->execute();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
-    
+
     <title>Document</title>
     <style>
-
-        .bottom{
+        div,
+        h3 {
+            text-align: center;
+        }
+        .bottom {
             margin-bottom: 5px;
         }
 
@@ -49,57 +52,57 @@ $nurseEmail->execute();
         button:hover {
             background: palevioletred;
         }
-        .contain{
+
+        .contain {
             padding: 20px 250px;
-            display:flex;
+            display: flex;
             flex-direction: column;
         }
-        .main-block{
+
+        .main-block {
             margin: 20px 0;
-            text-align:center;
+            text-align: center;
         }
-
-
     </style>
 </head>
 
 <body>
-            <?php include './nav.php'?>
+    <?php include './nav.php' ?>
 
-            <div class="contain">
-            <legend>
-                <h3> Doctor name : <?= $_SESSION['fullnameD'] ?></h3>
-            </legend>
-                <div>
-                    <?php while ($row = $nurse->fetch()) : ?>
-                    <div class="main-block">
-                        <img src="../img/doctor/<?= $row['did'] ?>.jpg" width="250px" height="auto" alt="">
-                    </div>
-
-                        <br>
-                    <hr>
-
-                        <p>Doctor ID : <?= $row['did'] ?></p>
-                        <p>Firstname Lastname : <?= $row['dfnamelname'] ?></p>
-                        <p>Spectialize : <?= $row['dspec'] ?></p>
-                    <?php endwhile ?>
-                    <p>Tel :
-                        <?php while ($row = $nurseTel->fetch()) : ?>
-                            <?= $row['dnumber'] ?>
-                        <?php endwhile ?>
-                    </p>
-                    <p>Email :
-                        <?php while ($row = $nurseEmail->fetch()) : ?>
-                            <?= $row['dmail'] ?>
-                        <?php endwhile ?>
-                    </p>
-                    
-                    <hr>
+    <div class="contain">
+        <legend>
+            <h3> Doctor name : <?= $_SESSION['fullnameD'] ?></h3>
+        </legend>
+        <div>
+            <?php while ($row = $nurse->fetch()) : ?>
+                <div class="main-block">
+                    <img src="../img/doctor/<?= $row['did'] ?>.jpg" width="250px" height="auto" alt="">
                 </div>
 
-            </div>
-            <button> <a href="index.php">Back to homepage</a> </button>
-           
+                <br>
+                <hr>
+
+                <p>Doctor ID : <?= $row['did'] ?></p>
+                <p>Firstname Lastname : <?= $row['dfnamelname'] ?></p>
+                <p>Spectialize : <?= $row['dspec'] ?></p>
+            <?php endwhile ?>
+            <p>Tel :
+                <?php while ($row = $nurseTel->fetch()) : ?>
+                    <?= $row['dnumber'] ?>
+                <?php endwhile ?>
+            </p>
+            <p>Email :
+                <?php while ($row = $nurseEmail->fetch()) : ?>
+                    <?= $row['dmail'] ?>
+                <?php endwhile ?>
+            </p>
+
+            <hr>
+        </div>
+
+    </div>
+    <button> <a href="index.php">Back to homepage</a> </button>
+
 
 
 </body>
