@@ -44,14 +44,17 @@
             font-family: 'Kanit', sans-serif;
         }
         fieldset {
-            border: none;
-            border-top: 1px solid pink;
+            margin: 0 auto;
+            width: fit-content;
+            border: 1px solid pink;
+            border-radius: 5px;
         }
 
         .btn {
-            width: 100%;
-            padding: 10px 0;
-            margin: 10px auto;
+            text-decoration: none;
+            width: 10vw;
+            padding: 10px 20px;
+            margin: 0 auto;
             border-radius: 5px;
             border: none;
             background: pink;
@@ -64,50 +67,39 @@
             background: palevioletred;
         }
 
-        .topnav {
-            overflow: hidden;
-            background-color: palevioletred;
-        }
-
-        .topnav a {
-            float: left;
-            display: block;
-            color: #f2f2f2;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
-
-        .topnav a:hover {
-            background-color: #ddd;
-            color: black;
+        .btncontainer{
+            margin: 3vh auto;
         }
 
         .account-details {
             display: block;
         }
 
-        .account-details>div {
+        .account-details > div {
             display: flex;
             align-items: center;
             margin-bottom: 10px;
         }
 
-        .account-details>div,
-        input,
-        label {
+        .account-details > div,
+        input
+        {
+            width: 100%;
+        }
+
+        label , .row{
             width: 100%;
         }
 
         label {
+            font-weight: bold;
             padding: 0 3px;
-            text-align: right;
         }
 
         input {
             font-weight: bold;
             font-family: 'Kanit', sans-serif;
-            padding: 10px;
+            padding: 5px;
             vertical-align: middle;
         }
 
@@ -126,42 +118,44 @@
 </head>
 
 <body>
-    <!-- <nav class="topnav">
-        <a href="../index.html">homepage</a>
-        <a href="logoutD.php">logout</a>
-        <a href="../other/doctorform.html" style="float:right">medical personnel</a>
-    </nav> -->
     <?php include './nav.php' ?>
     <fieldset>
         <legend>
             <h3>Patient Details</h3>
         </legend>
+
         <div class="main-block">
             <div>
                 <?php while ($row = $pInfo->fetch()) : ?>
                     <div class="account-details">
-                        <div><label>Patient ID ⠀⠀⠀</label><input type="text" value="<?= $row['pid'] ?>" readonly></div> <br>
-                        <div><label>Name⠀⠀⠀</label><input type="text" value="<?= $row['pfnamelname']?>" size="40" readonly></div> <br>
-                        <div><label>Date of birth ⠀⠀⠀</label><input type="text" value="<?= $row['pdob'] ?>" readonly></div> <br>
-                        <div><label>Age⠀⠀⠀</label><input type="text" value="<?= $row['page'] ?>" readonly></div> <br>
-                        <div><label>Gender ⠀⠀⠀</label><input type="text" value="<?= $row['psex'] ?>" readonly></div> <br>
+                        <div><label>Patient ID ⠀⠀⠀</label><input class="row"  type="text" value="<?= $row['pid'] ?>" readonly></div> <br>
+                        <div><label>Name⠀⠀⠀</label><input class="row"  type="text" value="<?= $row['pfnamelname']?>"  readonly></div> <br>
+                        <div><label>Date of birth ⠀⠀⠀</label><input class="row" type="text" value="<?= $row['pdob'] ?>" readonly></div> <br>
+                        <div><label>Age⠀⠀⠀</label><input class="row" type="text" value="<?= $row['page'] ?>" readonly></div> <br>
+                        <div><label>Gender ⠀⠀⠀</label><input class="row" type="text" value="<?= $row['psex'] ?>" readonly></div> <br>
                     </div>
                 <?php endwhile ?>
-                <p>Patient Tell. ⠀⠀⠀
-                    <?php while ($row = $pTel->fetch()) : ?>
-            <div class="bottom"><input type="text" value="<?= $row['pnumber'] ?>" readonly></div>
-            <?php endwhile ?>
-            </p>
-            <p>Patient Disease ⠀⠀⠀
-                <?php while ($row = $pDisease->fetch()) : ?>
-            <div class="bottom"><input type="text" value="<?= $row['pdisease'] ?>" size="10" readonly></div>
-        <?php endwhile ?>
-        </p>
+                <label>Patient Tell. ⠀⠀⠀</label>
+                <?php while ($row = $pTel->fetch()) : ?>
+                <div class="bottom">
+                    <input type="text" value="<?= $row['pnumber'] ?>" readonly>
+                </div>
+                <?php endwhile ?>
+            
+                <label>Patient Disease ⠀⠀⠀</label>
+                <?php $row = $pDisease->fetch()  ?>
+                <div class="bottom">
+                    <input type="text" value="<?= $row['pdisease'] ?>" size="10" readonly>
+                </div>
             </div>
         </div>
+
+        <div class="btncontainer">
+            <a class="btn" href="./patient.php">Back</a>
+            <a class="btn" href="./edit_patient.php?pid=<?=$pid?>&sex=<?=$sex?>">Edit</a>
+        </div>
     </fieldset>
-    <button class="btn"><a href="./edit_patient.php?pid=<?=$pid?>&sex=<?=$sex?>">Edit</a></button>
-    <button class="btn"><a href="./patient.php">Back</a></button>
+    
 
 </body>
 

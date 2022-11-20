@@ -113,6 +113,8 @@
         }   
 
         form{
+            border-radius: 5px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
             padding: 10px;
         }
         .form{
@@ -122,7 +124,7 @@
             margin: 0 auto;
         }
 
-        h2{
+        h1{
             margin-top: 5vh;
             text-align: center;
         }
@@ -170,7 +172,7 @@
 </head>
 <body>
     <?php include './nav.php' ?>
-    <h2>Edit Patient</h2>
+    <h1>Edit Patient</h1>
     <div class="form">
 
         <form action="update_patient.php" method="get">
