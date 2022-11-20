@@ -78,8 +78,7 @@
     </div>
     <div style="padding: 0 10px 10px; text-align: center;">
         <span>ค้นหาชื่อแพทย์ :</span> 
-        <input 
-        type="text" id="name" onkeyup="send()" pattern="[A-Za-z]+" placeholder="Search for doctors..." title="Please enter only alphabet">
+        <input type="text" id="name" onkeyup="send()" pattern="[A-Za-z]+" placeholder="Search for doctors..." title="Please enter only alphabet">
     </div>
     
     <div id="result"></div>

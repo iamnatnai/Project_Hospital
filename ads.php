@@ -8,7 +8,9 @@
     $dob = $_GET['dob'];
     $sex = $_GET['sex'];
     $date = $_GET['date'];
-    echo "TEST <br>";
+
+    print_r($_GET);
+
     if($date == ""){
         $date = null;
     }
@@ -29,19 +31,19 @@
         $leavedate->bindParam(2,$pid);
         $leavedate->execute();
        
-        if(isset($_GET['New'])){
-            $New = $_GET['New'];
-            foreach($New as $value){
-                $Newnum = $pdo->prepare("INSERT INTO ptel VALUES(?,?)");
-                $Newnum->bindParam(1,$pid);
-                $Newnum->bindParam(2,$value);
-                $Newnum->execute();
-            }
-        }
+        // if(isset($_GET['New'])){
+        //     $New = $_GET['New'];
+        //     foreach($New as $value){
+        //         $Newnum = $pdo->prepare("INSERT INTO ptel VALUES(?,?)");
+        //         $Newnum->bindParam(1,$pid);
+        //         $Newnum->bindParam(2,$value);
+        //         $Newnum->execute();
+        //     }
+        // }
 
         if(isset($_GET['phone'])){
             $phone = $_GET['phone'];
-            $Oldnum = $pdo->prepare("SELECT pnumber FROM ptel WHERE pid = ? ORDER BY pnumber DESC");
+            $Oldnum = $pdo->prepare("SELECT pnumber FROM ptel WHERE pid = ?");
             $Oldnum->bindParam(1,$pid);
             $Oldnum->execute();
             $telArr = array();
@@ -49,32 +51,29 @@
                 array_push($telArr,$row['pnumber']);
             }
             $indexT = 0;
-            print_r($phone);
-            echo '<br>';
-            print_r($telArr);
             while($indexT < sizeof($phone)){
                 $updateTel = $pdo->prepare("UPDATE ptel SET pnumber = ? WHERE pid = ? AND pnumber = ?");
-                $updateTel->bindParam(1,$phone[$indexT]);
                 $updateTel->bindParam(2,$pid);
+                $updateTel->bindParam(1,$phone[$indexT]);
                 $updateTel->bindParam(3,$telArr[$indexT]);
                 $updateTel->execute();
                 $indexT++;
             }
         }
 
-        if(isset($_GET['NewD'])){
-            $NewD = $_GET['NewD'];
-            foreach($NewD as $value){
-                $Newnum = $pdo->prepare("INSERT INTO disease VALUES(?,?)");
-                $Newnum->bindParam(1,$pid);
-                $Newnum->bindParam(2,$value);
-                $Newnum->execute();
-            }
-        }
+        // if(isset($_GET['NewD'])){
+        //     $NewD = $_GET['NewD'];
+        //     foreach($NewD as $value){
+        //         $Newnum = $pdo->prepare("INSERT INTO disease VALUES(?,?)");
+        //         $Newnum->bindParam(1,$pid);
+        //         $Newnum->bindParam(2,$value);
+        //         $Newnum->execute();
+        //     }
+        // }
 
         if(isset($_GET['d'])){
             $disease = $_GET['d'];
-            $Olddisease= $pdo->prepare("SELECT pdisease FROM disease WHERE pid = ? ORDER BY pdisease DESC");
+            $Olddisease= $pdo->prepare("SELECT pdisease FROM disease WHERE pid = ?");
             $Olddisease->bindParam(1,$pid);
             $Olddisease->execute();
             $diseaseArr = array();

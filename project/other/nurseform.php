@@ -57,6 +57,14 @@
         #home{
             float:right;
         }
+        span{
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        input{
+            padding: 5px;
+            font-size: 1rem;
+        }
         
     </style>
 </head>
@@ -70,8 +78,8 @@
         <a href="nurseform.php">พยาบาล</a>
         <br>
     </div>
-    <div style="padding: 10px; padding-top:0px ;">
-        ค้นหาชื่อพยาบาล : <input type="text" id="name" onkeyup="send()" pattern="[A-Za-z]+" title="Please enter only alphabet">
+    <div style="padding: 0 10px 10px; text-align: center;">
+    <span>ค้นหาชื่อพยาบาล : </span><input type="text" id="name" onkeyup="send()" pattern="[A-Za-z]+" title="Please enter only alphabet">
     </div>
     
     <div id="result"></div>

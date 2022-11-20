@@ -92,7 +92,7 @@
                     </div>
                 </div> 
             <?php endif ?>
-            <a href="../../other/doctorform.html" style="float: right;">Medical Personal</a>
+            <a href="../../other/doctorform.php" style="float: right;">Medical Personal</a>
         </div>
        
 
