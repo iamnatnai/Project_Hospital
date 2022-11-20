@@ -5,25 +5,17 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
 </head>
-
 <body>
-    <a href="insert.php">Insert</a> |
-    <a href="edit.php">Edit</a> |
+    <a href="insert.php">Insert</a> | 
+    <a href="edit.php">Edit</a> | 
     <a href="delete.php">Delete</a> <br><br>
-    <?php
-
-    ?>
-
-    <form action="deletedata.php" method="post">
-        <label for="sid">ค้นหารหัสการตรวจ : </label>
+    <form action="editform.php" method="post">
+    <label for="sid">ค้นหารหัสการตรวจ : </label>
         <input type="text" id="sid" name="sid">
-        <input type="submit" id="search" name="search" value="SEARCH" onclick="show()"><br><br>
+        <input type="submit" id="search" name="search" value="SEARCH"><br><br>
     </form>
-    <div id="result"></div>
 </body>
-
 </html>

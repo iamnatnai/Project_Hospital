@@ -13,7 +13,7 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 <body>
     <a href="insert.php">Insert</a> |
-    <a href="editdos.php">Edit</a> |
+    <a href="edit.php">Edit</a> |
     <a href="delete.php">Delete</a> <br><br>
     <form action="insertseeadoctor.php" method="post">
         <input type="hidden" name="did" value="<?= $_SESSION['usernameD'] ?>">
