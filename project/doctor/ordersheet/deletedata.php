@@ -23,7 +23,11 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             text-align: center;
             border-radius: 10px;
             border: 1px solid;
-            
+            box-sizing: content-box;
+            width: 300px;
+            height: 330px;
+            margin: auto;
+            padding-top: 10px;
         }
     </style>
 </head>
@@ -43,7 +47,7 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         Order time : <?= $row["dostime"] ?><br><br>
         Guideline : <?= $row["guideline"] ?><br><br>
         Status : <?= $row["status"] ?><br><br>
-        <input type="submit" value="Delete" onclick='confirmEdit("<?= $_POST["sid"] ?>")'>
+        <input type="submit" value="Delete" onclick='confirmDelete("<?= $_POST["sid"] ?>")'>
     </div>
 
 </body>
