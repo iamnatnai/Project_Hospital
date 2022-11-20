@@ -144,12 +144,10 @@
                     <small>Last Name</small><br>
                 </div>
             </div>
-            
             <div>
                 <label for="dob">Date Of Birth&nbsp;</label>
                 <input type="date" name="dob" id="dob" required value="<?=$info['pdob']?>"><br>
             </div>
-
             <div>
                 <label>Sex :&nbsp;</label><br>
                 <input type="radio" name="sex" id="male" value="MALE" required>
@@ -157,7 +155,6 @@
                 <input type="radio" name="sex" id="female" value="FEMALE" required>
                 <label for="female">Female</label><br>
             </div>
-
             <div class="con-contact">
                 <label for="contract">Contract&nbsp;</label>
                 <span onclick="remove()"><i class="fa-solid fa-square-minus"></i></span>
@@ -171,7 +168,6 @@
                     <?php endwhile ?>
                 </div>
             </div>
-            
             <div>
                 <label for="disease">Diseases&nbsp;</label>
                 <span onclick="removeD()"><i class="fa-solid fa-square-minus"></i></span>
@@ -183,7 +179,6 @@
                     <?php } ?>
                 </div>
             </div>
-
             <div>
                 <label for="leavedate">Leave Date</label>
                 <input type="date" name="date" id="leavedate" value="<?=$pdate['leavedate']?>">
