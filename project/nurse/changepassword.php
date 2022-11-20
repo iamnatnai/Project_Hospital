@@ -135,9 +135,10 @@ $row = $stmt->fetch();
         }
 
         .btn{
-            width: 100%;
+            cursor: pointer;
+            width: 20%;
             padding: 10px 0;
-            margin: 10px auto;
+            margin: 0 auto;
             border-radius: 5px;
             border: none;
             background: pink;
@@ -176,11 +177,6 @@ $row = $stmt->fetch();
 </head>
 
 <body>
-    <!-- <nav class="topnav">
-        <a href="../index.html">homepage</a>
-        <a href="loginD.php">logout</a>
-        <a href="../other/doctorform.html" style="float:right">medical personnel</a>
-    </nav> -->
     <?php include './nav.php'?>
 
     <div class="main-block">
@@ -209,7 +205,9 @@ $row = $stmt->fetch();
                     </div>
                 </div>
             </fieldset>
-            <button  class="btn" type="submit" href="/">Submit</button>
+            <div style="text-align: center;">
+                <button class="btn" type="submit" href="/">Submit</button>
+            </div>
         </form>
     </div>
 </body>

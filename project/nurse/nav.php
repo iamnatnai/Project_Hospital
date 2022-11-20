@@ -71,6 +71,12 @@
             .show {
                 display: block;
             }
+
+            @media screen and (max-width: 600px){
+                .navbar a , .dropdown div a{
+                    display: block;
+                }
+            }
         </style>
     </head>
     <body>
