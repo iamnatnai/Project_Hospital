@@ -47,7 +47,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <script>
-        
         window.onload = ()=>{
             if("<?=$info['psex']?>" == "MALE") {
                 document.getElementById("male").checked = true;
@@ -59,10 +58,24 @@
         let request = new XMLHttpRequest();
         let requestDis = new XMLHttpRequest();
 
+        function addTel() {
+            let input = document.createElement("INPUT");
+            let div = document.createElement("div");
+            
+            input.setAttribute("type", "tel");
+            input.setAttribute("name", "New[]");
+            input.setAttribute("required", "");
+            input.pattern = "[0-9]{10}";
+
+            
+            div.appendChild(input).style.display = "inline-block";
+            document.getElementById("tel").appendChild(div);
+        }
+
         function remove(){
             try{
                 let pid = "<?=$pid?>";
-                let tel = document.getElementById("tel").lastElementChild.value;
+                let tel = document.getElementById("tel").lastElementChild.lastElementChild.value;
                 
                 if(confirm("Do you want to remove number : "+tel+" ?")){
                     console.log(tel);
@@ -86,6 +99,7 @@
             try{
                 let pid = "<?=$pid?>";
                 let disease = document.getElementById("diseases").lastElementChild.value;
+                console.log(disease);
                 
                 if(confirm("Do you want to remove disease : "+disease+" ?")){
                     requestDis.onreadystatechange = ()=>{
@@ -104,70 +118,7 @@
             }
         }
     </script>
-
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@200&display=swap');
-        body{
-            font-family: 'Kanit', sans-serif;
-            background-color: #f9f9f9;
-        }   
-
-        form{
-            border-radius: 5px;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-            padding: 10px;
-        }
-        .form{
-            border-radius: 5px;
-            background-color: white;
-            width: 25%;
-            margin: 0 auto;
-        }
-
-        h1{
-            margin-top: 5vh;
-            text-align: center;
-        }
-        label{
-            font-size: 20px;
-            font-weight: 1000;
-        }
-
-        form > div{
-            padding: 10px;
-        }
-
-        input:focus{
-            outline: none;
-        }
-
-        input{
-            padding: 5px;
-        }
-
-        input[type=submit]{
-            border-radius: 5px;
-            padding: 10px 20px;
-            cursor: pointer;
-            background-color: #FFADBC;
-            border: none;
-            color: white;
-            font-weight: 900;
-        }
-
-        input[type=submit]:hover{
-            background-color: #975C8D;
-        }
-
-        i{
-            cursor: pointer;
-            color: #FFADBC;
-        }
-        i:hover{
-            color: #975C8D;
-        }
-
-    </style>
+    <link rel="stylesheet" href="../../css/editpatient.css">
     <title>Edit Patient</title>
 </head>
 <body>
@@ -177,7 +128,7 @@
 
         <form action="update_patient.php" method="get">
             <div style="text-align: center;">
-                <img src="../../img/patient/<?=$sex?>.png" alt="<?=$sex?>" width="200">
+                <img src="../../img/patient/<?=$sex?>.png" alt="<?=$sex?>" width="200vw">
             </div>
             <div style="display: flex;">
 
@@ -207,19 +158,25 @@
                 <label for="female">Female</label><br>
             </div>
 
-            <div >
+            <div class="con-contact">
                 <label for="contract">Contract&nbsp;</label>
-                <span onclick="remove()"><i class="fa-solid fa-square-minus"></i></span><br>
+                <span onclick="remove()"><i class="fa-solid fa-square-minus"></i></span>
+                <span onclick="addTel()"><i class="fa-solid fa-square-plus"></i></span>
+                <br>
                 <div id="tel">
                     <?php while($row=$pTel->fetch()) :?>
-                        <input type="tel" name="phone[]" id="phone1" required pattern="\d{10}" value="<?=$row['pnumber']?>">
+                        <div>
+                            <input type="tel" name="phone[]" id="phone1" required pattern="\d{10}" value="<?=$row['pnumber']?>">
+                        </div>
                     <?php endwhile ?>
                 </div>
             </div>
             
             <div>
                 <label for="disease">Diseases&nbsp;</label>
-                <span onclick="removeD()"><i class="fa-solid fa-square-minus"></i></span><br>
+                <span onclick="removeD()"><i class="fa-solid fa-square-minus"></i></span>
+                <span><i class="fa-solid fa-square-plus"></i></span>
+                <br>
                 <div id="diseases">
                     <?php foreach($checkDisease as $d) {?>
                         <input type="text" name="d[]" id="disease" value="<?=$d?>" required>

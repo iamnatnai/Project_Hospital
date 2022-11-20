@@ -9,6 +9,8 @@
     $sex = $_GET['sex'];
     $date = $_GET['date'];
 
+    print_r($_GET);
+
     if($date == ""){
         $date = null;
     }
@@ -29,6 +31,16 @@
         $leavedate->bindParam(2,$pid);
         $leavedate->execute();
        
+        if(isset($_GET['New'])){
+            $New = $_GET['New'];
+            print_r($New);
+            foreach($New as $value){
+                $Newnum = $pdo->prepare("INSERT INTO ptel VALUES(?,?)");
+                $Newnum->bindParam(1,$pid);
+                $Newnum->bindParam(2,$value);
+                $Newnum->execute();
+            }
+        }
 
         if(isset($_GET['phone'])){
             $phone = $_GET['phone'];
@@ -70,7 +82,7 @@
                 $indexD++;
             }
         }
-        header("location: ../Select/patient.php");
+        // header("location: ../Select/patient.php");
     }
     catch(PDOException $e){
         echo "Connection Fail : ".$e;

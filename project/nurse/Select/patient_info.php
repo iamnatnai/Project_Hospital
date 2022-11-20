@@ -143,10 +143,11 @@
                 <?php endwhile ?>
             
                 <label>Patient Disease ⠀⠀⠀</label>
-                <?php $row = $pDisease->fetch()  ?>
+                <?php while ($row = $pDisease->fetch()) : ?>
                 <div class="bottom">
                     <input type="text" value="<?= $row['pdisease'] ?>" size="10" readonly>
                 </div>
+                <?php endwhile ?>
             </div>
         </div>
 
