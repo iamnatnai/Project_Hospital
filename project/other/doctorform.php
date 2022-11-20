@@ -11,7 +11,7 @@
             xmlHttp = new XMLHttpRequest();
             xmlHttp.onreadystatechange = showResult;
             var name = document.getElementById("name").value;
-            var url = "nurse.php?name=" + name;
+            var url = "doctor.php?name=" + name;
             xmlHttp.open("GET",url,true);
             xmlHttp.send();
         } 
@@ -32,7 +32,7 @@
         }
 
         body {
-            
+            padding: 0;
             background: #f1f1f1;
         }
 
@@ -57,30 +57,32 @@
         #home{
             float:right;
         }
+        span{
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        input{
+            padding: 5px;
+            font-size: 1rem;
+        }
         
     </style>
 </head>
 
 <body>
-
-    <nav class="topnav">
-        <a href="../index.php">Home</a>
-        <a href="../doctor/loginD.php">Doctor</a>
-        <a href="../nurse/loginN.php">Nurse</a>
-    </nav>
-        <!-- <a href="#" style="float:right">medical personnel</a> -->
-    </nav>
+    <?php include './nav.php' ?>
     <div style="padding: 10px;">
-        <a href="doctorform.html">หมอ</a> | 
-        <a href="nurseform.html">พยาบาล</a>
+        <a href="doctorform.php">หมอ</a> | 
+        <a href="nurseform.php">พยาบาล</a>
         <br>
     </div>
-    <div style="padding: 10px; padding-top:0px ;">
-        ค้นหาชื่อพยาบาล : <input type="text" id="name" onkeyup="send()" pattern="[A-Za-z]+" title="Please enter only alphabet">
+    <div style="padding: 0 10px 10px; text-align: center;">
+        <span>ค้นหาชื่อแพทย์ :</span> 
+        <input 
+        type="text" id="name" onkeyup="send()" pattern="[A-Za-z]+" placeholder="Search for doctors..." title="Please enter only alphabet">
     </div>
     
     <div id="result"></div>
-    
 </body>
 
 </html>

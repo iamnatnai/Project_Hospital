@@ -37,6 +37,10 @@ $nurseEmail->execute();
             margin-bottom: 5px;
         }
 
+        .btn{
+            
+        }
+
         button {
             width: 100%;
             padding: 10px 0;
@@ -68,7 +72,6 @@ $nurseEmail->execute();
 
 <body>
     <?php include './nav.php' ?>
-
     <div class="contain">
         <legend>
             <h3> Doctor name : <?= $_SESSION['fullnameD'] ?></h3>
@@ -99,12 +102,7 @@ $nurseEmail->execute();
 
             <hr>
         </div>
-
     </div>
-    <button> <a href="index.php">Back to homepage</a> </button>
-
-
-
+    <button class="btn"><a href="index.php">Back to homepage</a> </button>
 </body>
-
 </html>

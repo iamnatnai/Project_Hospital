@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!DOCTYPE html>
     <html>
     <head>
@@ -77,17 +78,17 @@
 
         <div class="navbar">
             <a href="../index.php">Home</a>
-            <a href="../../doctor/loginD.php">Doctor</a>
-            <a href="../loginN.php">Nurse</a>
+            <a href="../doctor/loginD.php">Doctor</a>
+            <a href="../nurse/loginN.php">Nurse</a>
             
             <div class="dropdown">
                 <button class="dropbtn" onclick="myFunction()"><?=$_SESSION['fullname']?>
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content" id="myDropdown">
-                    <a href="./nurseinfo.php?nid=<?=$_SESSION['username']?>">Personal Information</a>
-                    <a href="changepassword.php?nid=<?php $_SESSION['username']?>">Change Password</a>
-                    <a href="./logoutN.php">Log Out</a>
+                    <a href="../nurseinfo.php?nid=<?=$_SESSION['username']?>">Personal Information</a>
+                    <a href="../changepassword.php?nid=<?=$_SESSION['username']?>">Change Password</a>
+                    <a href="../logoutN.php">Log Out</a>
                 </div>
             </div> 
             <a href="../../other/doctorform.html" style="float: right;">Medical Personal</a>
