@@ -144,6 +144,7 @@
         }
 
         input[type=submit]{
+            border-radius: 5px;
             padding: 10px 20px;
             cursor: pointer;
             background-color: #FFADBC;
@@ -165,7 +166,7 @@
         }
 
     </style>
-    <title>Document</title>
+    <title>Edit Patient</title>
 </head>
 <body>
     <?php include './nav.php' ?>
