@@ -7,7 +7,9 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <script src="https://kit.fontawesome.com/d711d18929.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../../css/dos.css">
     <script>
         function confirmEdit(sid) {
             var guideline = document.getElementById("guideline").value;
@@ -17,22 +19,33 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             }
         }
     </script>
+    <style>
+        #form{
+            text-align: center;
+        }
+        .option{
+            padding-left: 10px;
+        }
+        #button{
+            width: 70px;
+        }
+    </style>
 </head>
 
 <body>
-<?php include './navdos.php' ?><br>
+    <?php include './navdos.php' ?><br>
     <?php
     $sid = $_POST["sid"];
     $stmt = $pdo->prepare("select sid from dos where sid like ?");
     $stmt->bindParam(1, $sid);
     $stmt->execute();
     $row = $stmt->fetch(); ?>
-
-    SID : <?= $sid ?><br><br>
-    <label for="guide">Guideline : </label><br>
-    <textarea name="guideline" id="guideline" cols="30" rows="5"></textarea>
-    <input type="submit" value="Update" onclick='confirmEdit("<?= $_POST["sid"] ?>")'>
-    <!-- <a href='#' onclick='confirmEdit("<?= $_POST["sid"] ?>")'>Delete</a> -->
+    <div id="form">
+        <h3>รหัสการตรวจ : <?= $sid ?></h3>
+        <label for="guide">Guideline : </label><br>
+        <textarea name="guideline" id="guideline" cols="30" rows="5" required></textarea><br>
+        <input type="submit" value="Update" onclick='confirmEdit("<?= $_POST["sid"] ?>")'>
+    </div>
 </body>
 
 </html>
