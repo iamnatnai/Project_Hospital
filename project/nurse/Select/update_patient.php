@@ -8,7 +8,6 @@
     $dob = $_GET['dob'];
     $sex = $_GET['sex'];
     $date = $_GET['date'];
-    echo "TEST <br>";
     if($date == ""){
         $date = null;
     }
@@ -81,7 +80,10 @@
             while($row = $Olddisease->fetch()){
                 array_push($diseaseArr,$row['pdisease']);
             }
-
+            echo '<br>';
+            print_r($disease);
+            echo '<br>';
+            print_r($diseaseArr);
             $indexD = 0;
             while($indexD < sizeof($disease)){
                 $updateTel = $pdo->prepare("UPDATE disease SET pdisease = ? WHERE pid = ? AND pdisease = ?");
@@ -92,10 +94,10 @@
                 $indexD++;
             }
         }
-        header("location: ../Select/patient.php");
+        // header("location: ../Select/patient.php");
     }
     catch(PDOException $e){
         // header("location: ../Select/patient.php");
-        echo "Connection Fail : ".$e;
+        echo "<br>Connection Fail : ".$e;
     }
 ?>

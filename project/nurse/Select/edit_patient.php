@@ -61,39 +61,63 @@
         function addTel() {
             let input = document.createElement("INPUT");
             let div = document.createElement("div");
-            
+            let icon = document.createElement("i");
+            let span = document.createElement("span");
+
+            icon.setAttribute("class","fa-solid fa-square-minus");
+            span.setAttribute("onclick","removeTel()");
             input.setAttribute("type", "tel");
             input.setAttribute("name", "New[]");
             input.setAttribute("required", "");
             input.pattern = "[0-9]{10}";
 
-            
+            span.appendChild(icon);
+            span.style.marginLeft = "4px";
             div.appendChild(input).style.display = "inline-block";
+            div.appendChild(span);
             document.getElementById("tel").appendChild(div);
         }
 
-        function remove(){
-            try{
+        function remove(tel){
+            
                 let pid = "<?=$pid?>";
-                let tel = document.getElementById("tel").lastElementChild.lastElementChild.value;
-                
                 if(confirm("Do you want to remove number : "+tel+" ?")){
                     console.log(tel);
                     request.onreadystatechange = ()=>{
                         if(request.readyState == 4 && request.status == 200){
-                            console.log("Delete Success");
-                            document.getElementById("tel").removeChild(document.getElementById("tel").lastElementChild);
+                            let tele = document.getElementById("tel");
+                                Array.from(tele.children).forEach(e=>{
+                                    console.log(e);
+                                    if(e.className == tel){
+                                        tele.removeChild(e);
+                                    }
+                                });
+                            }
                         }
-                    }
                     let url = "delete_patient.php?pid="+pid+"&tel="+tel;
                     request.open("GET",url);
                     request.send();
                 }
+        }
+
+        function removeTel(){
+            try{
+                let pid = "<?=$pid?>";
+                request.onreadystatechange = ()=>{
+                    if(request.readyState == 4 && request.status == 200){
+                        console.log("Delete Success");
+                        document.getElementById("tel").removeChild(document.getElementById("tel").lastElementChild);
+                    }
+                }
+                let url = "delete_patient.php?pid="+pid+"&tel="+tel;
+                request.open("GET",url);
+                request.send();
             }
             catch(err){
                 console.log(err);
             }
-        }
+        
+    }
 
         function addDes() {
             let input = document.createElement("INPUT");
@@ -174,13 +198,13 @@
 
             <div class="con-contact">
                 <label for="contract">Contract&nbsp;</label>
-                <span onclick="remove()"><i class="fa-solid fa-square-minus"></i></span>
                 <span onclick="addTel()"><i class="fa-solid fa-square-plus"></i></span>
                 <br>
                 <div id="tel">
                     <?php while($row=$pTel->fetch()) :?>
-                        <div>
+                        <div class="<?=$row['pnumber']?>">
                             <input type="tel" name="phone[]" id="phone1" required pattern="\d{10}" value="<?=$row['pnumber']?>">
+                            <span onclick="remove('<?=$row['pnumber']?>')"><i class="fa-solid fa-square-minus"></i></span>
                         </div>
                     <?php endwhile ?>
                 </div>
