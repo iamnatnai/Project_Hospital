@@ -18,9 +18,11 @@ $patient->execute();
     <title>Document</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@200&display=swap');
+        *{
+            font-family: 'Kanit', sans-serif;
+        }
         body{
             background-color: #f9f9f9;
-            font-family: 'Kanit', sans-serif;
         }
 
         .pid{
