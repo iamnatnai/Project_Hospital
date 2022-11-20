@@ -10,9 +10,10 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     <meta charset="UTF-8">
     <script>
         function confirmEdit(sid) {
+            var guideline = document.getElementById("guideline").value;
             var ans = confirm("ต้องการแก้ข้อมูลในรหัสการตรวจ : " + sid);
             if (ans == true) {
-                document.location = "editdos.php?sid=" + sid;
+                document.location = "editdos.php?sid=" + sid + "&guideline=" + guideline;
             }
         }
     </script>
@@ -28,7 +29,7 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     SID : <?= $row["sid"] ?><br><br>
     <label for="guide">Guideline : </label><br>
-    <textarea name="guideline" cols="30" rows="5"></textarea>
+    <textarea name="guideline" id="guideline" cols="30" rows="5"></textarea>
     <input type="submit" value="Update" onclick='confirmEdit("<?= $_POST["sid"] ?>")'>
     <!-- <a href='#' onclick='confirmEdit("<?= $_POST["sid"] ?>")'>Delete</a> -->
 </body>
