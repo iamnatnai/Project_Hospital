@@ -17,12 +17,12 @@
             $fnamelname = explode(" ",$info['pfnamelname']);
         }
 
-        $pTel = $pdo->prepare("SELECT * FROM ptel WHERE pid = ?");
+        $pTel = $pdo->prepare("SELECT * FROM ptel WHERE pid = ? ORDER BY pnumber DESC");
         $pTel->bindParam(1,$pid);
         $pTel->execute();
         
 
-        $pDisease = $pdo->prepare("SELECT pdisease FROM disease WHERE pid = ?");
+        $pDisease = $pdo->prepare("SELECT pdisease FROM disease WHERE pid = ? ORDER BY pdisease DESC");
         $pDisease->bindParam(1,$pid);
         $pDisease->execute();
         $checkDisease = array();
@@ -95,10 +95,22 @@
             }
         }
 
+        function addDes() {
+            let input = document.createElement("INPUT");
+            let div = document.createElement("div");
+            
+            input.setAttribute("type", "text");
+            input.setAttribute("name", "NewD[]");
+            input.setAttribute("required", "");
+            
+            div.appendChild(input).style.display = "inline-block";
+            document.getElementById("diseases").appendChild(div);
+        }
+
         function removeD(){
             try{
                 let pid = "<?=$pid?>";
-                let disease = document.getElementById("diseases").lastElementChild.value;
+                let disease = document.getElementById("diseases").lastElementChild.lastElementChild.value;
                 console.log(disease);
                 
                 if(confirm("Do you want to remove disease : "+disease+" ?")){
@@ -127,9 +139,11 @@
     <div class="form">
 
         <form action="update_patient.php" method="get">
+
             <div style="text-align: center;">
                 <img src="../../img/patient/<?=$sex?>.png" alt="<?=$sex?>" width="200vw">
             </div>
+
             <div style="display: flex;">
 
                 <input type="text" name="pid" value="<?=$pid?>" hidden>
@@ -144,7 +158,7 @@
                     <small>Last Name</small><br>
                 </div>
             </div>
-            
+
             <div>
                 <label for="dob">Date Of Birth&nbsp;</label>
                 <input type="date" name="dob" id="dob" required value="<?=$info['pdob']?>"><br>
@@ -171,15 +185,17 @@
                     <?php endwhile ?>
                 </div>
             </div>
-            
+
             <div>
                 <label for="disease">Diseases&nbsp;</label>
                 <span onclick="removeD()"><i class="fa-solid fa-square-minus"></i></span>
-                <span><i class="fa-solid fa-square-plus"></i></span>
+                <span onclick="addDes()"><i class="fa-solid fa-square-plus"></i></span>
                 <br>
                 <div id="diseases">
                     <?php foreach($checkDisease as $d) {?>
-                        <input type="text" name="d[]" id="disease" value="<?=$d?>" required>
+                        <div>
+                            <input type="text" name="d[]" id="disease" value="<?=$d?>" required>
+                        </div>
                     <?php } ?>
                 </div>
             </div>

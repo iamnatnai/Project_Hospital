@@ -85,9 +85,9 @@
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content" id="myDropdown">
-                    <a href="./nurseinfo.php?nid=<?=$_SESSION['username']?>">Personal Information</a>
-                    <a href="changepassword.php?nid=<?php $_SESSION['username']?>">Change Password</a>
-                    <a href="./logoutN.php">Log Out</a>
+                    <a href="../nurseinfo.php?nid=<?=$_SESSION['username']?>">Personal Information</a>
+                    <a href="../changepassword.php?nid=<?=$_SESSION['username']?>">Change Password</a>
+                    <a href="../logoutN.php">Log Out</a>
                 </div>
             </div> 
             <a href="../other/doctorform.html" style="float: right;">Medical Personal</a>

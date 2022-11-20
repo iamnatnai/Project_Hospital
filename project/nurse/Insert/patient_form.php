@@ -11,16 +11,23 @@ if (empty($_SESSION['username'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@200&display=swap');
         body{
+            font-family: 'Kanit', sans-serif;
             background-color: #f9f9f9;
-        }
+        }  
+        
         .container{
-            padding: 20px;
+            padding: 30px;
             border-radius: 10px;
             background-color: #fff;
             width: 20%;
             margin: 5vh auto;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            
         }
         .contain {
             padding: 20px 250px;
@@ -32,8 +39,9 @@ if (empty($_SESSION['username'])) {
             margin-bottom: 5px;
         }
 
-        button {
-            width: 100%;
+        .back {
+            text-align: center;
+            width: 2vw;
             padding: 10px 0;
             margin: 10px auto;
             border-radius: 5px;
@@ -44,9 +52,70 @@ if (empty($_SESSION['username'])) {
             color: #fff;
         }
 
-        button:hover {
+        .back:hover {
             background: palevioletred;
         }
+
+        i{
+            cursor: pointer;
+            color: #FFADBC;
+        }
+        i:hover{
+            color: #975C8D;
+        }
+        label{
+            font-size: 20px;
+            font-weight: 1000;
+        }
+
+        input:focus{
+            outline: none;
+        }
+
+        input{
+            padding: 5px;
+        }
+
+        .btn {
+            cursor: pointer;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 auto;
+            border-radius: 5px;
+            border: none;
+            background: #FFADBC;
+            font-size: 14px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .btn:hover {
+            background: palevioletred;
+        } 
+
+        input[type=submit]{
+            border-radius: 5px;
+            padding: 13px 20px;
+            cursor: pointer;
+            background-color: #FFADBC;
+            border: none;
+            color: white;
+        }
+
+        input[type=submit]:hover{
+            background-color: #975C8D;
+        }
+        
+
+        .sex{
+            margin-left: 3vw;
+        }
+
+        .btncontainer{
+            text-align: center;
+            margin: 5vh 0 auto;
+        }
+        
     </style>
     <script>
         function removeTel() {
@@ -88,24 +157,25 @@ if (empty($_SESSION['username'])) {
 </head>
 
 <body>
-<?php include './nav.php' ?>
+    <?php include './nav.php' ?>
+    <h1 style="text-align: center; margin-top: 3vh;">Add Patient</h1>
     <form action="insert_patient.php" method="post">
         <div class="container">
             <div class="firstlastname">
-                <label for="name">First Name : </label>
+                <label for="name">First Name </label>
                 <input type="text" id="name"  pattern="[\DA-Za-z]{1,}" name="fname" required title="First name must contain characters a - z , A-Z only!"><br>
-                <label for="name">Last Name : </label>
+                <label for="name">Last Name </label>
                 <input type="text" id="name" pattern="[\DA-Za-z]{1,}" name="lname" required title="Last name must contain characters a - z , A-Z only!">
             </div>
 
             <div class="form">
-                <label for="dob">Date Of Birth</label>
+                <label for="dob">Date Of Birth </label>
                 <input type="date" name="dob" id="dob" required><br>
             </div>
 
             <div class="form">
                 <label>Sex</label>
-                <div class="form">
+                <div class="sex">
                     <div>
                         <input type="radio" name="sex" id="male" value="MALE" required>
                         <label for="male">Male</label>
@@ -122,8 +192,8 @@ if (empty($_SESSION['username'])) {
                 <label for="contract">Contract</label>
                 <div>
                     <input type="tel" name="phone[]" id="phone1" required pattern="\d{10}" title="Phone number must contain 0-9 only!">
-                    <span onclick="addTel()">+</span>
-                    <span onclick="removeTel()">-</span>
+                    <span onclick="addTel()"><i class="fa-solid fa-square-plus"></i></span>
+                    <span onclick="removeTel()"><i class="fa-solid fa-square-minus"></i></span>
                 </div>
             </div>
             <div id="tel"></div>
@@ -132,15 +202,17 @@ if (empty($_SESSION['username'])) {
                 <label for="disease">Diseases</label>
                 <div>
                     <input type="text" id="diseaseInput" name="d[]">
-                    <span onclick="addDisease()">+</span>
-                    <span onclick="removeDisease()">-</span>
+                    <span onclick="addDisease()"><i class="fa-solid fa-square-plus"></i></span>
+                    <span onclick="removeDisease()"><i class="fa-solid fa-square-minus"></i></span>
                 </div>
             </div>
             <div id="diseases"></div>
-            <input type="submit" value="Submit">
+            <div class="btncontainer">
+                <a class="btn" href="../index.php">Back</a>
+                <input type="submit" value="Submit">
+            </div>
         </form>
     </div>
-    <button> <a href="../index.php">Back</a> </button>
 </body>
 
 </html>

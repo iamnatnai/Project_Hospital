@@ -44,8 +44,9 @@
             font-family: 'Kanit', sans-serif;
         }
         fieldset {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
             margin: 0 auto;
-            width: fit-content;
+            width: 20%;
             border: 1px solid pink;
             border-radius: 5px;
         }
@@ -68,6 +69,7 @@
         }
 
         .btncontainer{
+            width: fit-content;
             margin: 3vh auto;
         }
 
@@ -97,6 +99,7 @@
         }
 
         input {
+            text-align: center;
             font-weight: bold;
             font-family: 'Kanit', sans-serif;
             padding: 5px;
@@ -111,7 +114,12 @@
         }
 
         .bottom {
-            margin-bottom: 5px;
+            text-align: center;
+            margin: 5px 10px;
+        }
+
+        .bottom input{
+            width: 50%;
         }
         
     </style>
