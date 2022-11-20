@@ -11,7 +11,7 @@ $stmt->execute();
 
 
 if ($stmt->rowCount() > 0) { ?>
-    <table border="1">
+    <table border="1" style="margin: 0 auto;">
         <tr>
             <th>ขื่อ-นามสกุล</th>
             <th>ตำแหน่ง</th>
