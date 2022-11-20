@@ -4,6 +4,7 @@
        header("location: ../loginN.php");
     }
     $pid = $_GET['pid'];
+    $sex = $_GET['sex'];
     try{
         $pdo = new PDO("mysql:host=localhost;dbname=system_hospital","root","");
         $pdo->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
@@ -120,6 +121,7 @@
         .bottom {
             margin-bottom: 5px;
         }
+        
     </style>
 </head>
 
@@ -147,7 +149,7 @@
                 <?php endwhile ?>
                 <p>Patient Tell. ⠀⠀⠀
                     <?php while ($row = $pTel->fetch()) : ?>
-                <div class="bottom"><input type="text" value="<?= $row['pnumber'] ?>" readonly></div>
+            <div class="bottom"><input type="text" value="<?= $row['pnumber'] ?>" readonly></div>
             <?php endwhile ?>
             </p>
             <p>Patient Disease ⠀⠀⠀
@@ -158,7 +160,9 @@
             </div>
         </div>
     </fieldset>
-    <button class="btn"><a href="./edit_patient.php?pid=<?=$pid?>">Edit</a></button>
+    <button class="btn"><a href="./edit_patient.php?pid=<?=$pid?>&sex=<?=$sex?>">Edit</a></button>
+    <button class="btn"><a href="./patient.php">Back</a></button>
+
 </body>
 
 </html>

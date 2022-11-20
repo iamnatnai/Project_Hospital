@@ -83,7 +83,7 @@ $patient->execute();
         <?php while ($row = $patient->fetch()) : ?>
             <tr>
                 <td>
-                    <a href="patient_info.php?pid=<?= $row['pid'] ?>"
+                    <a href="patient_info.php?pid=<?= $row['pid'] ?>&sex=<?= $row['psex'] ?>"
                         class="pid">
                         <?= $row['pid'] ?>
                     </a>
