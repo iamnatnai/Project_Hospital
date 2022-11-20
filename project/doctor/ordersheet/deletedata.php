@@ -21,8 +21,8 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     <style>
         #detail {
             text-align: center;
-            border-radius: 10px;
-            border: 1px solid;
+            /* border-radius: 10px;
+            border: 1px solid; */
             box-sizing: content-box;
             width: 300px;
             height: 330px;
@@ -41,6 +41,9 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $stmt->execute();
     $row = $stmt->fetch(); ?>
     <div id="detail">
+        
+        <fieldset>
+            <legend><h3>ข้อมูลที่ต้องการจะลบ</h3></legend>
         Doctor's order sheet ID : <?= $row["dosid"] ?><br><br>
         SID : <?= $row["sid"] ?><br><br>
         Order date : <?= $row["dosdate"] ?><br><br>
@@ -48,6 +51,8 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         Guideline : <?= $row["guideline"] ?><br><br>
         Status : <?= $row["status"] ?><br><br>
         <input type="submit" value="Delete" onclick='confirmDelete("<?= $_POST["sid"] ?>")'>
+        </fieldset>
+        
     </div>
 
 </body>
