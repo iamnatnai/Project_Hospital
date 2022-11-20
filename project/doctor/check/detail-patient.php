@@ -23,6 +23,10 @@ try {
 
 <head>
     <style>
+         @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@200&display=swap');
+        *{
+            font-family: 'Kanit', sans-serif;
+        }
         fieldset {
             border: none;
             border-top: 1px solid pink;

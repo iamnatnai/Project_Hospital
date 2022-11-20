@@ -4,6 +4,7 @@
        header("location: ../loginN.php");
     }
     $pid = $_GET['pid'];
+    $sex = $_GET['sex'];
     try{
         $pdo = new PDO("mysql:host=localhost;dbname=system_hospital","root","");
         $pdo->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
@@ -44,8 +45,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <script>
-        
         window.onload = ()=>{
             if("<?=$info['psex']?>" == "MALE") {
                 document.getElementById("male").checked = true;
@@ -57,10 +58,24 @@
         let request = new XMLHttpRequest();
         let requestDis = new XMLHttpRequest();
 
+        function addTel() {
+            let input = document.createElement("INPUT");
+            let div = document.createElement("div");
+            
+            input.setAttribute("type", "tel");
+            input.setAttribute("name", "New[]");
+            input.setAttribute("required", "");
+            input.pattern = "[0-9]{10}";
+
+            
+            div.appendChild(input).style.display = "inline-block";
+            document.getElementById("tel").appendChild(div);
+        }
+
         function remove(){
             try{
                 let pid = "<?=$pid?>";
-                let tel = document.getElementById("tel").lastElementChild.value;
+                let tel = document.getElementById("tel").lastElementChild.lastElementChild.value;
                 
                 if(confirm("Do you want to remove number : "+tel+" ?")){
                     console.log(tel);
@@ -84,6 +99,7 @@
             try{
                 let pid = "<?=$pid?>";
                 let disease = document.getElementById("diseases").lastElementChild.value;
+                console.log(disease);
                 
                 if(confirm("Do you want to remove disease : "+disease+" ?")){
                     requestDis.onreadystatechange = ()=>{
@@ -102,66 +118,81 @@
             }
         }
     </script>
-    <title>Document</title>
+    <link rel="stylesheet" href="../../css/editpatient.css">
+    <title>Edit Patient</title>
 </head>
 <body>
-
     <?php include './nav.php' ?>
-    <form action="update_patient.php" method="get">
+    <h1>Edit Patient</h1>
+    <div class="form">
 
-        <div style="display: flex;">
+        <form action="update_patient.php" method="get">
+            <div style="text-align: center;">
+                <img src="../../img/patient/<?=$sex?>.png" alt="<?=$sex?>" width="200vw">
+            </div>
+            <div style="display: flex;">
 
-            <input type="text" name="pid" value="<?=$pid?>" hidden>
+                <input type="text" name="pid" value="<?=$pid?>" hidden>
 
-            <label for="name">Name</label>
+                <label for="name">Name&nbsp;</label>
+                <div style="margin-right: 10px;">
+                    <input type="text" id="name" pattern="[\DA-Za-z]{1,}" name="fname" required value="<?=$fnamelname[0]?>"><br>
+                    <small>First Name</small>
+                </div>
+                <div>
+                    <input type="text" id="name" pattern="[\DA-Za-z]{1,}" name="lname" required value="<?=$fnamelname[1]?>"><br>
+                    <small>Last Name</small><br>
+                </div>
+            </div>
+            
             <div>
-                <input type="text" id="name" pattern="[\DA-Za-z]{1,}" name="fname" required value="<?=$fnamelname[0]?>"><br>
-                <small>First Name</small>
+                <label for="dob">Date Of Birth&nbsp;</label>
+                <input type="date" name="dob" id="dob" required value="<?=$info['pdob']?>"><br>
             </div>
+
             <div>
-                <input type="text" id="name" pattern="[\DA-Za-z]{1,}" name="lname" required value="<?=$fnamelname[1]?>"><br>
-                <small>Last Name</small><br>
+                <label>Sex :&nbsp;</label><br>
+                <input type="radio" name="sex" id="male" value="MALE" required>
+                <label for="male">Male</label>
+                <input type="radio" name="sex" id="female" value="FEMALE" required>
+                <label for="female">Female</label><br>
             </div>
-        </div>
-        
-        <div>
-            <label for="dob">Date Of Birth</label>
-            <input type="date" name="dob" id="dob" required value="<?=$info['pdob']?>"><br>
-        </div>
 
-        <div>
-            <label>Sex</label><br>
-            <input type="radio" name="sex" id="male" value="MALE" required>
-            <label for="male">Male</label>
-            <input type="radio" name="sex" id="female" value="FEMALE" required>
-            <label for="female">Female</label><br>
-        </div>
-
-        <div >
-            <label for="contract">Contract</label>
-            <span onclick="remove()">-</span><br>
-            <div id="tel">
-                <?php while($row=$pTel->fetch()) :?>
-                    <input type="tel" name="phone[]" id="phone1" required pattern="\d{10}" value="<?=$row['pnumber']?>">
-                <?php endwhile ?>
+            <div class="con-contact">
+                <label for="contract">Contract&nbsp;</label>
+                <span onclick="remove()"><i class="fa-solid fa-square-minus"></i></span>
+                <span onclick="addTel()"><i class="fa-solid fa-square-plus"></i></span>
+                <br>
+                <div id="tel">
+                    <?php while($row=$pTel->fetch()) :?>
+                        <div>
+                            <input type="tel" name="phone[]" id="phone1" required pattern="\d{10}" value="<?=$row['pnumber']?>">
+                        </div>
+                    <?php endwhile ?>
+                </div>
             </div>
-        </div>
-        
-        <div>
-            <label for="disease">Diseases</label>
-            <span onclick="removeD()">-</span><br>
-            <div id="diseases">
-                <?php foreach($checkDisease as $d) {?>
-                    <input type="text" name="d[]" id="disease" value="<?=$d?>" required>
-                <?php } ?>
+            
+            <div>
+                <label for="disease">Diseases&nbsp;</label>
+                <span onclick="removeD()"><i class="fa-solid fa-square-minus"></i></span>
+                <span><i class="fa-solid fa-square-plus"></i></span>
+                <br>
+                <div id="diseases">
+                    <?php foreach($checkDisease as $d) {?>
+                        <input type="text" name="d[]" id="disease" value="<?=$d?>" required>
+                    <?php } ?>
+                </div>
             </div>
-        </div>
 
-        <div>
-            <label for="leavedate">Leave Date : </label>
-            <input type="date" name="date" id="leavedate" value="<?=$pdate['leavedate']?>">
-        </div>
-        <input type="submit" value="Submit">
-    </form>
+            <div>
+                <label for="leavedate">Leave Date</label>
+                <input type="date" name="date" id="leavedate" value="<?=$pdate['leavedate']?>">
+            </div>
+            <div style="text-align: center;">
+                <input type="submit" value="Submit">
+            </div>
+            
+        </form>
+    </div>
 </body>
 </html>

@@ -34,8 +34,8 @@
 
 <body>
     <nav class="topnav">
-        <a href="../index.html">homepage</a>
-        <a href="logoutD.php">logout</a>
-        <a href="../other/doctorform.html" style="float:right">medical personnel</a>
+        <a href="../../index.php">homepage</a>
+        <a href="../logoutD.php">logout</a>
+        <a href="../../other/doctorform.html" style="float:right">medical personnel</a>
     </nav>
 </body>

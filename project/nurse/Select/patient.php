@@ -18,13 +18,33 @@ $patient->execute();
     <title>Document</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@200&display=swap');
-        body{
-            background-color: #f9f9f9;
+        *{
             font-family: 'Kanit', sans-serif;
         }
+        body{
+            background-color: #f9f9f9;
+        }
 
-        div,
-        h3 {
+        .pid{
+            padding: 5px; 
+            font-weight: 900;
+        }
+        .pid:hover{
+            border-radius: 5px;
+            background-color: #D989B5;
+            color: #FFF;
+        }
+
+        a{
+            text-decoration: none;
+            color: #000;
+        }
+
+        a:hover{
+            font-weight: bold;
+        }
+
+        div,h3 {
             text-align: center;
         }
 
@@ -40,14 +60,10 @@ $patient->execute();
             font-size: 20px;
         }
         
-        th,
-        td,
-        tr {
+        th,td,tr {
             padding: 10px;
-            border: 1px;
+            border-bottom: 1px solid black;
         }
-
-        
     </style>
 </head>
 
@@ -61,18 +77,23 @@ $patient->execute();
             <th>Date Of Birth</th>
             <th>Age</th>
             <th>Sex</th>
-            <td>To do</td>
+            <th>To do</th>
             <th>History</th>
         </tr>
         <?php while ($row = $patient->fetch()) : ?>
             <tr>
-                <td><a href="patient_info.php?pid=<?= $row['pid'] ?>"><?= $row['pid'] ?></a></td>
+                <td>
+                    <a href="patient_info.php?pid=<?= $row['pid'] ?>&sex=<?= $row['psex'] ?>"
+                        class="pid">
+                        <?= $row['pid'] ?>
+                    </a>
+                </td>
                 <td style="font-weight: bold;"><?= $row['pfnamelname'] ?></td>
                 <td><?= $row['pdob'] ?></td>
                 <td><?= $row['page'] ?></td>
                 <td><?= $row['psex'] ?></td>
-                <td><a href="./patient_follow.php?pid=<?= $row['pid'] ?>">To do</a></td>
-                <td><a href="patient_history.php?pid=<?= $row['pid'] ?>">History</a></td>
+                <td><a href="./patient_follow.php?pid=<?= $row['pid'] ?>" class="pid">To do</a></td>
+                <td><a href="patient_history.php?pid=<?= $row['pid'] ?>" class="pid">History</a></td>
             </tr>
         <?php endwhile ?>
     </table>

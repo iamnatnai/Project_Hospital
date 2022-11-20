@@ -12,6 +12,16 @@ if (empty($_SESSION['username'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+        body{
+            background-color: #f9f9f9;
+        }
+        .container{
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #fff;
+            width: 20%;
+            margin: 5vh auto;
+        }
         .contain {
             padding: 20px 250px;
             display: flex;
@@ -80,7 +90,7 @@ if (empty($_SESSION['username'])) {
 <body>
 <?php include './nav.php' ?>
     <form action="insert_patient.php" method="post">
-        <div class="form">
+        <div class="container">
             <div class="firstlastname">
                 <label for="name">First Name : </label>
                 <input type="text" id="name"  pattern="[\DA-Za-z]{1,}" name="fname" required title="First name must contain characters a - z , A-Z only!"><br>
@@ -127,10 +137,8 @@ if (empty($_SESSION['username'])) {
                 </div>
             </div>
             <div id="diseases"></div>
-            <input type="submit" value="Submit"> <br> <br>
-            <hr>
+            <input type="submit" value="Submit">
         </form>
-
     </div>
     <button> <a href="../index.php">Back</a> </button>
 </body>

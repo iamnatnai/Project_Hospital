@@ -17,25 +17,53 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@200&display=swap');
+        *{
+            font-family: 'Kanit', sans-serif;
+        }
+        body{
+            background-color: #f9f9f9;
+        }
+
+        .pid{
+            padding: 5px; 
+            font-weight: 900;
+        }
+        .pid:hover{
+            border-radius: 5px;
+            background-color: #D989B5;
+            color: #FFF;
+        }
+
+        a:hover{
+            font-weight: bold;
+        }
+
+        div,h3 {
+            text-align: center;
+        }
+
+        table {
+            background-color: #FFFF;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 2rem auto;
+            text-align: center;
+        }
+
+        th{
+            font-size: 20px;
+        }
+        
+        th,td,tr {
+            padding: 10px;
+            border-bottom: 1px solid black;
+        }
+
+
         form,
         h3 {
             text-align: center;
-        }
-        table,
-        tr,
-        td,
-        th {
-            border: 1px solid
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial;
-            padding: 10px;
-            background: #f1f1f1;
         }
 
         .topnav {
@@ -123,7 +151,7 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 <tr>
                     <td> <?= $row[0] ?> </td>
                     <td> <?= $row[1] ?> </td>
-                    <?php echo "<td align='center'><a href='detail-patient.php?id=" . $row[2] . "'>" . "detail" . "</a></td>"; ?>
+                    <?php echo "<td align='center'><a href='detail-patient.php?id=" . $row[2] . "' class='pid'>" . "detail" . "</a></td>"; ?>
                 </tr>
             <?php endwhile; ?>
         </table>

@@ -1,13 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@200&display=swap');
+
 * {
     box-sizing: border-box;
     margin: 0;
 }
 
-body {
+* {
     font-family: 'Kanit', sans-serif;
-    /* font-family: Arial; */
-    /* padding: 10px; */
+}
+
+body {
     background: #f1f1f1;
 }
 
@@ -80,11 +82,11 @@ body {
     margin-top: 20px;
 }
 
-.history{
+.history {
     padding: 20px;
 }
 
-iframe{
+iframe {
     align-items: center;
 }
 
@@ -97,6 +99,7 @@ iframe{
         padding: 0;
     }
 }
+
 @media screen and (max-width: 400px) {
     .topnav a {
         float: none;
