@@ -19,6 +19,7 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 </head>
 
 <body>
+<?php include './navdos.php' ?><br>
     <?php
     $sid = $_POST["sid"];
     $stmt = $pdo->prepare("select * from dos where sid like ?");

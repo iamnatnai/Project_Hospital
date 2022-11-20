@@ -20,6 +20,7 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 </head>
 
 <body>
+<?php include './navdos.php' ?><br>
     <?php
     $sid = $_POST["sid"];
     $stmt = $pdo->prepare("select sid from dos where sid like ?");
@@ -27,7 +28,7 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $stmt->execute();
     $row = $stmt->fetch(); ?>
 
-    SID : <?= $row["sid"] ?><br><br>
+    SID : <?= $sid ?><br><br>
     <label for="guide">Guideline : </label><br>
     <textarea name="guideline" id="guideline" cols="30" rows="5"></textarea>
     <input type="submit" value="Update" onclick='confirmEdit("<?= $_POST["sid"] ?>")'>

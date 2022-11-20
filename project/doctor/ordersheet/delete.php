@@ -1,5 +1,4 @@
 <?php
-session_start();
 $pdo = new PDO("mysql:host=localhost;dbname=system_hospital;charset=utf8", "root", "");
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 ?>
@@ -14,7 +13,7 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 </head>
 
 <body>
-    <?php include '../nav.php' ?><br>
+    <?php include './navdos.php' ?><br>
     <a href="insert.php">Insert</a> |
     <a href="edit.php">Edit</a> |
     <a href="delete.php">Delete</a> <br><br>

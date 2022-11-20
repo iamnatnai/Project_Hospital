@@ -10,6 +10,7 @@
 </head>
 
 <body>
+<?php include './nav.php' ?><br>
     <?php
     $sid=$_GET["sid"];
     $stmt = $pdo->prepare("select sid from seeadoctor where sid=?");
