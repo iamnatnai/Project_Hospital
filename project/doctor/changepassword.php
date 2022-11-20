@@ -98,7 +98,7 @@
         }
 
         .account-details,
-        .personal-details {
+        #personal-details {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
@@ -178,9 +178,8 @@
 
 <body>
     <nav class="topnav">
-        <a href="../index.html">homepage</a>
-        <a href="loginD.php">logout</a>
-        <a href="../other/doctorform.html" style="float:right">medical personnel</a>
+        <a href="../index.php">homepage</a>
+        <a href="../../other/doctorform.html" style="float:right">medical personnel</a>
     </nav>
 
     <div class="main-block">
@@ -198,7 +197,7 @@
                 <legend>
                     <h3>ChangePassword </h3>
                 </legend>
-                <div class="personal-details">
+                <div class="personal-details " id="personal-details">
                     <div>
                         <div><label>Old Password</label><input type="text" name="Opass" required><br></div>
                         <div><label>New Password</label><input name="password" id="password" type="password" onkeyup='check();'

@@ -23,10 +23,12 @@ try {
 
 <head>
     <style>
-         @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@200&display=swap');
-        *{
+        @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@200&display=swap');
+
+        body {
             font-family: 'Kanit', sans-serif;
         }
+
         fieldset {
             border: none;
             border-top: 1px solid pink;
@@ -108,9 +110,9 @@ try {
 
 <body>
     <nav class="topnav">
-        <a href="../index.html">homepage</a>
-        <a href="logoutD.php">logout</a>
-        <a href="../other/doctorform.html" style="float:right">medical personnel</a>
+        <a href="../index.php">homepage</a>
+        <a href="../logoutD.php">logout</a>
+        <a href="../../other/doctorform.html" style="float:right">medical personnel</a>
     </nav>
     <fieldset>
         <legend>
@@ -121,7 +123,7 @@ try {
                 <?php while ($row = $pInfo->fetch()) : ?>
                     <div class="account-details">
                         <div><label>Patient ID ⠀⠀⠀</label><input type="text" value="<?= $row['pid'] ?>" readonly></div> <br>
-                        <div><label>Firstname Lastname⠀⠀⠀</label><input type="text" value="<?= $row['pfnamelname'] ?>" readonly></div> <br>
+                        <div><label>Name⠀⠀⠀</label><input type="text" value="<?= $row['pfnamelname'] ?>" readonly></div> <br>
                         <div><label>Date of birth ⠀⠀⠀</label><input type="text" value="<?= $row['pdob'] ?>" readonly></div> <br>
                         <div><label>age⠀⠀⠀</label><input type="text" value="<?= $row['page'] ?>" readonly></div> <br>
                         <div><label>Gender ⠀⠀⠀</label><input type="text" value="<?= $row['psex'] ?>" readonly></div> <br>
