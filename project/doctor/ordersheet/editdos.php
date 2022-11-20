@@ -17,7 +17,7 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $stmt->bindParam(1, $_GET["guideline"]);
     $stmt->bindParam(2, $_GET["sid"]);
     if ($stmt->execute()) {
-        header("location:delete.php");
+        header("location:edit.php");
     } ?>
 </body>
 

@@ -9,5 +9,9 @@
     $stmt->bindParam(1, $_GET["sid"]);
     $stmt->bindParam(2, $_GET["guideline"]);
     $stmt->bindParam(3, $status);
-    $stmt->execute();
+    if($stmt->execute())
+    {
+        header("location:insert.php");
+    }
+    
 ?>
