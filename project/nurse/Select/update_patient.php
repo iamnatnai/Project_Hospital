@@ -33,7 +33,6 @@
        
         if(isset($_GET['New'])){
             $New = $_GET['New'];
-            print_r($New);
             foreach($New as $value){
                 $Newnum = $pdo->prepare("INSERT INTO ptel VALUES(?,?)");
                 $Newnum->bindParam(1,$pid);
@@ -52,7 +51,7 @@
                 array_push($telArr,$row['pnumber']);
             }
             $indexT = 0;
-            while($indexT < sizeof($telArr)){
+            while($indexT < sizeof($phone)){
                 $updateTel = $pdo->prepare("UPDATE ptel SET pnumber = ? WHERE pid = ? AND pnumber = ?");
                 $updateTel->bindParam(2,$pid);
                 $updateTel->bindParam(1,$phone[$indexT]);
@@ -61,7 +60,7 @@
                 $indexT++;
             }
         }
-        
+
         if(isset($_GET['d'])){
             $disease = $_GET['d'];
             $Olddisease= $pdo->prepare("SELECT pdisease FROM disease WHERE pid = ?");
@@ -82,7 +81,17 @@
                 $indexD++;
             }
         }
-        // header("location: ../Select/patient.php");
+        
+        if(isset($_GET['NewD'])){
+            $NewD = $_GET['NewD'];
+            foreach($NewD as $value){
+                $Newnum = $pdo->prepare("INSERT INTO disease VALUES(?,?)");
+                $Newnum->bindParam(1,$pid);
+                $Newnum->bindParam(2,$value);
+                $Newnum->execute();
+            }
+        }
+        header("location: ../Select/patient.php");
     }
     catch(PDOException $e){
         echo "Connection Fail : ".$e;
