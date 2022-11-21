@@ -61,34 +61,47 @@
         function addTel() {
             let input = document.createElement("INPUT");
             let div = document.createElement("div");
-            
+            let icon = document.createElement("i");
+            let span = document.createElement("span");
+
+            icon.setAttribute("class","fa-solid fa-square-minus");
+            span.setAttribute("onclick","removeTel()");
             input.setAttribute("type", "tel");
             input.setAttribute("name", "New[]");
             input.setAttribute("required", "");
             input.pattern = "[0-9]{10}";
 
-            
+            span.appendChild(icon);
+            span.style.marginLeft = "4px";
             div.appendChild(input).style.display = "inline-block";
+            div.appendChild(span);
             document.getElementById("tel").appendChild(div);
         }
 
-        function remove(){
-            try{
-                let pid = "<?=$pid?>";
-                let tel = document.getElementById("tel").lastElementChild.lastElementChild.value;
-                
-                if(confirm("Do you want to remove number : "+tel+" ?")){
-                    console.log(tel);
-                    request.onreadystatechange = ()=>{
-                        if(request.readyState == 4 && request.status == 200){
-                            console.log("Delete Success");
-                            document.getElementById("tel").removeChild(document.getElementById("tel").lastElementChild);
-                        }
+        function remove(tel){
+            let pid = "<?=$pid?>";
+            if(confirm("Do you want to remove number : "+tel+" ?")){
+                console.log(tel);
+                request.onreadystatechange = ()=>{
+                    if(request.readyState == 4 && request.status == 200){
+                        let tele = document.getElementById("tel");
+                            Array.from(tele.children).forEach(e=>{
+                                console.log(e);
+                                if(e.className == tel){
+                                    tele.removeChild(e);
+                                }
+                            });
                     }
-                    let url = "delete_patient.php?pid="+pid+"&tel="+tel;
-                    request.open("GET",url);
-                    request.send();
                 }
+                let url = "delete_patient.php?pid="+pid+"&tel="+tel;
+                request.open("GET",url);
+                request.send();
+            }
+        }
+
+        function removeTel(){
+            try{
+                document.getElementById("tel").removeChild(document.getElementById("tel").lastElementChild);
             }
             catch(err){
                 console.log(err);
@@ -98,29 +111,37 @@
         function addDes() {
             let input = document.createElement("INPUT");
             let div = document.createElement("div");
+            let icon = document.createElement("i");
+            let span = document.createElement("span");
             
+            icon.setAttribute("class","fa-solid fa-square-minus");
+            span.setAttribute("onclick","removeDis()");
             input.setAttribute("type", "text");
             input.setAttribute("name", "NewD[]");
             input.setAttribute("required", "");
             
+            span.appendChild(icon);
+            span.style.marginLeft = "4px";
             div.appendChild(input).style.display = "inline-block";
+            div.appendChild(span);
             document.getElementById("diseases").appendChild(div);
         }
 
-        function removeD(){
+        function removeD(dis){
             try{
                 let pid = "<?=$pid?>";
-                let disease = document.getElementById("diseases").lastElementChild.lastElementChild.value;
-                console.log(disease);
-                
-                if(confirm("Do you want to remove disease : "+disease+" ?")){
+                if(confirm("Do you want to remove disease : "+dis+" ?")){
                     requestDis.onreadystatechange = ()=>{
                         if(requestDis.readyState == 4 && requestDis.status == 200){
-                            console.log("Delete Success");
-                            document.getElementById("diseases").removeChild(document.getElementById("diseases").lastElementChild);
+                            let disease = document.getElementById("diseases");
+                                Array.from(disease.children).forEach(e=>{
+                                    if(e.className == dis){
+                                        disease.removeChild(e);
+                                    }
+                                });
                         }
                     }
-                    let url = "delete_patient.php?pid="+pid+"&dis="+disease;
+                    let url = "delete_patient.php?pid="+pid+"&dis="+dis;
                     requestDis.open("GET",url);
                     requestDis.send();
                 }
@@ -129,6 +150,17 @@
                 console.log(err);
             }
         }
+
+        function removeDis(){
+            try{
+                document.getElementById("diseases").removeChild(document.getElementById("diseases").lastElementChild);
+            }
+            catch(err){
+                console.log(err);
+            }
+        }
+
+        
     </script>
     <link rel="stylesheet" href="../../css/editpatient.css">
     <title>Edit Patient</title>
@@ -152,7 +184,7 @@
                 <div style="margin-right: 10px;">
                     <input type="text" id="name" pattern="[\DA-Za-z]{1,}" name="fname" required value="<?=$fnamelname[0]?>"><br>
                     <small>First Name</small>
-                </div>
+                </div> 
                 <div>
                     <input type="text" id="name" pattern="[\DA-Za-z]{1,}" name="lname" required value="<?=$fnamelname[1]?>"><br>
                     <small>Last Name</small><br>
@@ -174,13 +206,13 @@
 
             <div class="con-contact">
                 <label for="contract">Contract&nbsp;</label>
-                <span onclick="remove()"><i class="fa-solid fa-square-minus"></i></span>
                 <span onclick="addTel()"><i class="fa-solid fa-square-plus"></i></span>
                 <br>
                 <div id="tel">
                     <?php while($row=$pTel->fetch()) :?>
-                        <div>
+                        <div class="<?=$row['pnumber']?>">
                             <input type="tel" name="phone[]" id="phone1" required pattern="\d{10}" value="<?=$row['pnumber']?>">
+                            <span onclick="remove('<?=$row['pnumber']?>')"><i class="fa-solid fa-square-minus"></i></span>
                         </div>
                     <?php endwhile ?>
                 </div>
@@ -188,13 +220,13 @@
 
             <div>
                 <label for="disease">Diseases&nbsp;</label>
-                <span onclick="removeD()"><i class="fa-solid fa-square-minus"></i></span>
                 <span onclick="addDes()"><i class="fa-solid fa-square-plus"></i></span>
                 <br>
                 <div id="diseases">
                     <?php foreach($checkDisease as $d) {?>
-                        <div>
+                        <div class="<?=$d?>">
                             <input type="text" name="d[]" id="disease" value="<?=$d?>" required>
+                            <span onclick="removeD('<?=$d?>')"><i class="fa-solid fa-square-minus"></i></span>
                         </div>
                     <?php } ?>
                 </div>

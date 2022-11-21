@@ -20,14 +20,14 @@
             insertP($pdo,$pid,$pname,$dob,$sex);
             inserTel($pdo,$pid,$tel);
             insertDisease($pdo,$pid);
-            header("location:insert_success.php?pid=$pid");
+            header("location:../index.php");
             
         }else{
             $pid = "HN53127201";
             insertP($pdo,$pid,$pname,$pdob,$psex);
             inserTel($pdo,$pid,$tel);
             insertDisease($pdo,$pid,$disease);
-            header("location:insert_success.php?pid=$pid");
+            header("location:../index.php");
         }
 
         

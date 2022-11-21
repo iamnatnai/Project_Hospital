@@ -5,7 +5,6 @@
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <script src="https://kit.fontawesome.com/d711d18929.js" crossorigin="anonymous"></script>
     <script>
-
         async function getDataFromAPI() {
             let response = await fetch('https://data.go.th/dataset/8d33e225-1a96-401b-ae0b-f3fa683cabdd/resource/09bf9c0a-b066-420c-8af2-2169657694ad/download/gov_hos.json')
             let rawData = await response.text()
@@ -39,7 +38,6 @@
             }
         }
         getDataFromAPI() // เรียกฟังก์ชัน
-
     </script>
     <link rel="stylesheet" href="./css/index.css">
 </head>
