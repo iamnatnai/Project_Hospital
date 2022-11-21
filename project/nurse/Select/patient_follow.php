@@ -68,9 +68,9 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     <div>
         <?php
         $stmt = $pdo->prepare("SELECT DISTINCT patient.pid , patient.pfnamelname , dos.guideline , dos.dosdate , dos.dostime , dos.status
-            FROM patient JOIN seeadoctor JOIN dos 
-            ON patient.pid = seeadoctor.pid AND seeadoctor.sid = dos.sid
-            AND patient.pid = ? AND dos.status = 'Active'");
+                                FROM patient JOIN seeadoctor JOIN dos 
+                                ON patient.pid = seeadoctor.pid AND seeadoctor.sid = dos.sid
+                                AND patient.pid = ? AND dos.status = 'Active'");
 
         if (!empty($_GET['pid'])) {
             $value = $_GET["pid"];

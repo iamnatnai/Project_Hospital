@@ -17,7 +17,7 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         .option{
             padding-left: 10px;
         }
-        #button{
+        input[title]{
             width: 70px;
         }
     </style>
@@ -36,7 +36,7 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         <input type="hidden" name="did" value="<?= $_SESSION['usernameD'] ?>">
         <label for="pid">กรอกรหัสคนไข้ : </label>
         <input type="text" name="pid" id="pid" required pattern="HN\d{8}">
-        <input type="submit" value="Next" id="button">
+        <input type="submit" value="Next" title="button">
     </form>
 </body>
 

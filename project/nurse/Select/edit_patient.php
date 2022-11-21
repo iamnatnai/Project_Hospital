@@ -176,7 +176,7 @@
                 <img src="../../img/patient/<?=$sex?>.png" alt="<?=$sex?>" width="200vw">
             </div>
 
-            <div style="display: flex;">
+            <div>
 
                 <input type="text" name="pid" value="<?=$pid?>" hidden>
 

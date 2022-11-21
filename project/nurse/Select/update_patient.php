@@ -94,10 +94,10 @@
                 $indexD++;
             }
         }
-        // header("location: ../Select/patient.php");
+        header("location: ../Select/patient.php");
     }
     catch(PDOException $e){
-        // header("location: ../Select/patient.php");
+        header("location: ../Select/patient.php");
         echo "<br>Connection Fail : ".$e;
     }
 ?>

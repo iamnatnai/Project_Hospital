@@ -86,17 +86,17 @@
                 
             </aside>
 
-            <article class="card">
+            <aside class="card">
                <p id="result"></p> 
-            </article> 
+            </aside> 
 
-            <article class="card">
+            <aside class="card">
                 <h3>Follow Me</h3>
                 <p> <i class="fa-brands fa-facebook"></i> : click <a href="https://www.facebook.com/PR.Rajavithi/"
                         target="_black"> facebook</a> </p>
                 <p> <i class="fa-brands fa-youtube"></i> : click <a
                         href="https://www.youtube.com/channel/UC7bX792qKQxrHNwoG68apZA" target="_black"> youtube </a></p>
-            </article>
+            </aside>
         </div>
     </section>
 
