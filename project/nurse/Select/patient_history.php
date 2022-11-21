@@ -7,8 +7,8 @@
     $pdo = new PDO("mysql:host=localhost;dbname=system_hospital","root","");
     $pdo->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
     $patient = $pdo->prepare("SELECT * FROM followorder WHERE followorder.dosid IN
-    (SELECT dos.dosid FROM dos WHERE dos.sid IN
-     (SELECT seeadoctor.sid FROM seeadoctor WHERE seeadoctor.pid = ?))");
+                                (SELECT dos.dosid FROM dos WHERE dos.sid IN
+                                    (SELECT seeadoctor.sid FROM seeadoctor WHERE seeadoctor.pid = ?))");
     $patient->bindParam(1,$pid);
     $patient->execute();
 ?>

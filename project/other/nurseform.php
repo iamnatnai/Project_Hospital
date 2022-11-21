@@ -79,7 +79,8 @@
         <br>
     </div>
     <div style="padding: 0 10px 10px; text-align: center;">
-    <span>ค้นหาชื่อพยาบาล : </span><input type="text" id="name" onkeyup="send()" pattern="[A-Za-z]+" title="Please enter only alphabet">
+    <span>ค้นหาชื่อพยาบาล : </span><input type="text" id="name" onkeyup="send()" 
+    pattern="[A-Za-z]+" title="Please enter only alphabet">
     </div>
     
     <div id="result"></div>

@@ -184,7 +184,7 @@
                 <div style="margin-right: 10px;">
                     <input type="text" id="name" pattern="[\DA-Za-z]{1,}" name="fname" required value="<?=$fnamelname[0]?>"><br>
                     <small>First Name</small>
-                </div>
+                </div> 
                 <div>
                     <input type="text" id="name" pattern="[\DA-Za-z]{1,}" name="lname" required value="<?=$fnamelname[1]?>"><br>
                     <small>Last Name</small><br>
