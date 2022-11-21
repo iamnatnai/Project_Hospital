@@ -92,7 +92,7 @@
                 </button>
                 <div class="dropdown-content" id="myDropdowns">
                     <a href="./nurseinfo.php?nid=<?=$_SESSION['username']?>">Personal Information</a>
-                    <a href="changepassword.php?nid=<?=$_SESSION['username']?>">Change Password</a>
+                    <a href="./changepassword.php?nid=<?=$_SESSION['username']?>">Change Password</a>
                     <a href="./logoutN.php">Log Out</a>
                 </div>
             </div> 

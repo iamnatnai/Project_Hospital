@@ -51,7 +51,7 @@
         <a href="../index.php">Home</a>
         <a href="../doctor/loginD.php">Doctor</a>
         <a href="../nurse/loginN.php">Nurse</a>
-        <a href="../other/doctorform.html" style="float:right">Medical Personal</a>
+        <a href="../other/doctorform.php" style="float:right">Medical Personal</a>
     </nav>
 
     <form action="check-loginN.php" method="post">
